@@ -1,40 +1,37 @@
-export interface ContentfulProject {
-  fields: {
-    title: string;
-    description: string;
-    image: {
-      fields: {
-        file: {
-          url: string;
-        };
-      };
-    };
-    category: string;
-    technologies: string[];
-    details: string;
-    link: string;
-    year: string;
-  };
-  sys: {
-    id: string;
-  };
+import { Asset, Entry, EntrySkeletonType } from 'contentful';
+import { Document } from '@contentful/rich-text-types';
+
+// Define the field structures as they actually appear in your Contentful setup
+export interface ContentfulProjectFields {
+  title: string;
+  description?: string;
+  image?: Asset;
+  category: 'dataScience' | 'product'; // Match your Contentful validation
+  technologies?: string[];
+  details?: string;
+  year?: string;
 }
 
-export interface ContentfulBlogPost {
-  fields: {
-    title: string;
-    excerpt: string;
-    date: string;
-    image: {
-      fields: {
-        file: {
-          url: string;
-        };
-      };
-    };
-    slug: string;
-  };
-  sys: {
-    id: string;
-  };
+export interface ContentfulBlogPostFields {
+  title: string;
+  excerpt?: string;
+  date?: string;
+  image?: Asset;
+  slug?: string;
+  content?: Document; // RichText field from Contentful
 }
+
+// Create skeleton types for Contentful v11
+export interface ContentfulProjectSkeleton extends EntrySkeletonType {
+  contentTypeId: 'project';
+  fields: ContentfulProjectFields;
+}
+
+export interface ContentfulBlogPostSkeleton extends EntrySkeletonType {
+  contentTypeId: 'blogPost';
+  fields: ContentfulBlogPostFields;
+}
+
+// Export the final types
+export type ContentfulProject = Entry<ContentfulProjectSkeleton, undefined, string>;
+export type ContentfulBlogPost = Entry<ContentfulBlogPostSkeleton, undefined, string>;
