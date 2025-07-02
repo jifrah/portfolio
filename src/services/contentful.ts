@@ -10,20 +10,24 @@ const client = createClient({
 export const getProjects = async (): Promise<Project[]> => {
   try {
     const response = await client.getEntries<ContentfulProjectSkeleton>({
-      content_type: 'project'
+      content_type: 'project',
+      include: 2  // This resolves linked assets up to 2 levels deep
     });
 
-    return response.items.map(item => ({
-      id: item.sys.id,
-      title: item.fields.title,
-      description: item.fields.description || '',
-      image: item.fields.image?.fields?.file?.url ? `https:${item.fields.image.fields.file.url}` : '',
-      category: item.fields.category as Project['category'],
-      technologies: item.fields.technologies || [],
-      details: item.fields.details || '',
-      link: '', // Since link field doesn't exist in Contentful, provide empty string
-      year: item.fields.year || ''
-    }));
+    return response.items.map(item => {
+      const imageUrl = item.fields.image?.fields?.file?.url;
+      return {
+        id: item.sys.id,
+        title: item.fields.title,
+        description: item.fields.description || '',
+        image: imageUrl ? `https:${imageUrl}` : '',
+        category: item.fields.category as Project['category'],
+        technologies: item.fields.technologies || [],
+        details: item.fields.details || '',
+        link: '', // Since link field doesn't exist in Contentful, provide empty string
+        year: item.fields.year || ''
+      };
+    });
   } catch (error) {
     console.error('Error fetching projects from Contentful:', error);
     // Return mock data as fallback
@@ -35,21 +39,25 @@ export const getProjects = async (): Promise<Project[]> => {
 export const getBlogPosts = async (): Promise<BlogPost[]> => {
   try {
     const response = await client.getEntries<ContentfulBlogPostSkeleton>({
-      content_type: 'blogPost'
+      content_type: 'blogPost',
+      include: 2  // This resolves linked assets up to 2 levels deep
     });
 
-    return response.items.map(item => ({
-      id: item.sys.id,
-      title: item.fields.title,
-      excerpt: item.fields.excerpt || '',
-      date: item.fields.date ? new Date(item.fields.date).toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      }) : '',
-      image: item.fields.image?.fields?.file?.url ? `https:${item.fields.image.fields.file.url}` : '',
-      slug: item.fields.slug || ''
-    }));
+    return response.items.map(item => {
+      const imageUrl = item.fields.image?.fields?.file?.url;
+      return {
+        id: item.sys.id,
+        title: item.fields.title,
+        excerpt: item.fields.excerpt || '',
+        date: item.fields.date ? new Date(item.fields.date).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        }) : '',
+        image: imageUrl ? `https:${imageUrl}` : '',
+        slug: item.fields.slug || ''
+      };
+    });
   } catch (error) {
     console.error('Error fetching blog posts from Contentful:', error);
     // Return mock data as fallback
