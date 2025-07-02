@@ -1,26 +1,77 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Header, MobileMenu, Footer } from './components/layout';
+import { 
+  Hero, 
+  About, 
+  Projects, 
+  Career, 
+  Certifications, 
+  TechStack, 
+  Blog, 
+  Contact 
+} from './components/sections';
+import { Modal } from './components/ui';
+import { Contact as ContactForm } from './components/sections/Contact';
 
-function App() {
+const App: React.FC = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen bg-[#FCFCF9]">
+      <Header 
+        onMenuClick={() => setIsMobileMenuOpen(true)}
+        onContactClick={() => setIsContactModalOpen(true)}
+      />
+      
+      <MobileMenu 
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+        onContactClick={() => {
+          setIsMobileMenuOpen(false);
+          setIsContactModalOpen(true);
+        }}
+      />
+      
+      <main>
+        <Hero />
+        <About />
+        <Projects />
+        <Career />
+        <Certifications />
+        <TechStack />
+        <Blog />
+        <Contact />
+      </main>
+      
+      <Footer />
+      
+      {/* Contact Modal for desktop header */}
+      <Modal
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+        title="Get In Touch"
+      >
+        <ContactForm />
+      </Modal>
     </div>
   );
-}
+};
 
 export default App;
+
+// src/index.tsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './styles/globals.css';
+import App from './App';
+
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
+
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
