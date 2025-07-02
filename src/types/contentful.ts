@@ -32,6 +32,6 @@ export interface ContentfulBlogPostSkeleton extends EntrySkeletonType {
   fields: ContentfulBlogPostFields;
 }
 
-// Export the final types
+// Export the final types with proper locale specification
 export type ContentfulProject = Entry<ContentfulProjectSkeleton, undefined, string>;
 export type ContentfulBlogPost = Entry<ContentfulBlogPostSkeleton, undefined, string>;

@@ -15,7 +15,8 @@ export const getProjects = async (): Promise<Project[]> => {
     });
 
     return response.items.map(item => {
-      const imageUrl = item.fields.image?.fields?.file?.url;
+      const image = item.fields.image as any;
+      const imageUrl = image?.fields?.file?.url;
       return {
         id: item.sys.id,
         title: item.fields.title,
@@ -44,7 +45,8 @@ export const getBlogPosts = async (): Promise<BlogPost[]> => {
     });
 
     return response.items.map(item => {
-      const imageUrl = item.fields.image?.fields?.file?.url;
+      const image = item.fields.image as any;
+      const imageUrl = image?.fields?.file?.url;
       return {
         id: item.sys.id,
         title: item.fields.title,
