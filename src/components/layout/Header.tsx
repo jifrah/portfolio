@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Menu } from 'lucide-react';
+import { Send, Menu } from 'lucide-react';
 import { useScrollVisibility } from '../../hooks/useScrollVisibility';
 import { useSmoothScroll } from '../../hooks/useSmoothScroll';
 import { NAVIGATION_ITEMS } from '../../utils/constants';
@@ -20,12 +20,12 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, onContactClick }) =
       }`}
     >
       <div className="px-6 md:px-12">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-12 md:h-11">
           <button
             onClick={() => scrollToSection('hero')}
-            className="text-[#FCFCF9] text-lg md:text-xl hover:text-[#F5F5F7] transition-colors font-nunito"
+            className="text-[#CCCCCC] text-lg md:text-xl hover:text-[#F5F5F7] transition-colors font-nunito"
           >
-            Jérémy Ifrah
+            JI
           </button>
           
           {/* Desktop Navigation */}
@@ -34,7 +34,7 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, onContactClick }) =
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase().replace(' ', '-'))}
-                className="text-[#FCFCF9] hover:text-[#F5F5F7] transition-colors font-medium font-nunito"
+                className="text-[#CCCCCC] hover:text-[#FCFCF9] hover:underline transition-all font-medium font-nunito"
               >
                 {item}
               </button>
@@ -43,9 +43,9 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, onContactClick }) =
           
           <button
             onClick={onContactClick}
-            className="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-[#FCFCF9] hover:bg-[#F5F5F7] transition-colors"
+            className="hidden md:flex items-center justify-center p-2 hover:bg-[#1D1D1F] rounded-lg transition-colors"
           >
-            <Mail className="w-5 h-5 text-[#050505]" />
+            <Send className="w-5 h-5 text-[#CCCCCC] hover:text-[#F5F5F7]" />
           </button>
           
           <button onClick={onMenuClick} className="md:hidden">
