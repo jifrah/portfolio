@@ -48,8 +48,11 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, onContactClick }) =
             <Send className="w-5 h-5 text-[#CCCCCC] hover:text-[#F5F5F7]" />
           </button>
           
-          <button onClick={onMenuClick} className="md:hidden">
-            <Menu className="w-6 h-6 text-[#FCFCF9]" />
+          <button onClick={onMenuClick} className="md:hidden group">
+            <div className="flex flex-col space-y-1.5">
+              <div className="w-5 h-0.5 bg-[#CCCCCC] group-hover:bg-[#FCFCF9] rounded transition-colors duration-300"></div>
+              <div className="w-5 h-0.5 bg-[#CCCCCC] group-hover:bg-[#FCFCF9] rounded transition-colors duration-300"></div>
+            </div>
           </button>
         </div>
       </div>
