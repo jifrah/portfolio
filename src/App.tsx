@@ -22,6 +22,7 @@ const App: React.FC = () => {
       <Header 
         onMenuClick={() => setIsMobileMenuOpen(true)}
         onContactClick={() => setIsContactModalOpen(true)}
+        isMenuOpen={isMobileMenuOpen} // ADD THIS LINE
       />
       
       <MobileMenu 

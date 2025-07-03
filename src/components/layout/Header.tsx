@@ -1,15 +1,17 @@
 import React from 'react';
-import { Send, Menu } from 'lucide-react';
+import { Send } from 'lucide-react';
 import { useScrollVisibility } from '../../hooks/useScrollVisibility';
 import { useSmoothScroll } from '../../hooks/useSmoothScroll';
 import { NAVIGATION_ITEMS } from '../../utils/constants';
+import { BurgerButton } from './BurgerButton'; // Import the new component
 
 interface HeaderProps {
   onMenuClick: () => void;
   onContactClick: () => void;
+  isMenuOpen: boolean; // Add this prop
 }
 
-export const Header: React.FC<HeaderProps> = ({ onMenuClick, onContactClick }) => {
+export const Header: React.FC<HeaderProps> = ({ onMenuClick, onContactClick, isMenuOpen }) => {
   const isVisible = useScrollVisibility();
   const scrollToSection = useSmoothScroll();
   
@@ -48,12 +50,10 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, onContactClick }) =
             <Send className="w-5 h-5 text-[#CCCCCC] hover:text-[#F5F5F7]" />
           </button>
           
-          <button onClick={onMenuClick} className="md:hidden group">
-            <div className="flex flex-col space-y-1.5">
-              <div className="w-5 h-0.5 bg-[#CCCCCC] group-hover:bg-[#FCFCF9] rounded transition-colors duration-300"></div>
-              <div className="w-5 h-0.5 bg-[#CCCCCC] group-hover:bg-[#FCFCF9] rounded transition-colors duration-300"></div>
-            </div>
-          </button>
+          {/* Replace the old burger button with the new one */}
+          <div className="md:hidden">
+            <BurgerButton isOpen={isMenuOpen} onClick={onMenuClick} />
+          </div>
         </div>
       </div>
     </header>
