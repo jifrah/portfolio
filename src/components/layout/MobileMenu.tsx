@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSmoothScroll } from '../../hooks/useSmoothScroll';
 import { NAVIGATION_ITEMS } from '../../utils/constants';
-import { BurgerButton } from './BurgerButton';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -55,13 +54,9 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onConta
           }`}
           style={{ transformOrigin: 'top' }}
         />
-        {/* Header with close button - no logo */}
-        <div className="relative flex justify-end items-center h-12 px-6 pt-2">
-          <BurgerButton isOpen={isOpen} onClick={onClose} />
-        </div>
         
-        {/* Navigation items - left aligned, top positioned */}
-        <nav className="relative px-6 pt-8">
+        {/* Navigation items - left aligned, with space for header */}
+        <nav className="relative px-6 pt-20"> {/* Increased padding to account for header height */}
           {[...NAVIGATION_ITEMS, 'Contact'].map((item, index) => (
             <button
               key={item}
@@ -70,7 +65,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onConta
                 isOpen ? 'translate-y-0 opacity-100 translate-x-0' : 'translate-y-4 opacity-0 -translate-x-4'
               }`}
               style={{
-                transitionDelay: isOpen ? `${100 + (index * 80)}ms` : '0ms'
+                transitionDelay: isOpen ? `${100 + (index * 40)}ms` : '0ms'
               }}
             >
               {item}

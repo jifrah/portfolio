@@ -20,9 +20,9 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#FCFCF9]">
       <Header 
-        onMenuClick={() => setIsMobileMenuOpen(true)}
+        onMenuClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} // Toggle instead of just true
         onContactClick={() => setIsContactModalOpen(true)}
-        isMenuOpen={isMobileMenuOpen} // ADD THIS LINE
+        isMenuOpen={isMobileMenuOpen}
       />
       
       <MobileMenu 

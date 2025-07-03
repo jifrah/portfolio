@@ -3,12 +3,12 @@ import { Send } from 'lucide-react';
 import { useScrollVisibility } from '../../hooks/useScrollVisibility';
 import { useSmoothScroll } from '../../hooks/useSmoothScroll';
 import { NAVIGATION_ITEMS } from '../../utils/constants';
-import { BurgerButton } from './BurgerButton'; // Import the new component
+import { BurgerButton } from './BurgerButton';
 
 interface HeaderProps {
   onMenuClick: () => void;
   onContactClick: () => void;
-  isMenuOpen: boolean; // Add this prop
+  isMenuOpen: boolean;
 }
 
 export const Header: React.FC<HeaderProps> = ({ onMenuClick, onContactClick, isMenuOpen }) => {
@@ -17,9 +17,9 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, onContactClick, isM
   
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 bg-[#050505] transition-transform duration-300 ${
+      className={`fixed top-0 left-0 right-0 bg-[#050505] transition-transform duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
-      }`}
+      } ${isMenuOpen ? 'z-[60]' : 'z-50'}`}
     >
       <div className="px-6 md:px-12">
         <div className="flex items-center justify-between h-12 md:h-11">
@@ -50,9 +50,12 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, onContactClick, isM
             <Send className="w-5 h-5 text-[#CCCCCC] hover:text-[#F5F5F7]" />
           </button>
           
-          {/* Replace the old burger button with the new one */}
+          {/* Single BurgerButton that handles both open and close */}
           <div className="md:hidden">
-            <BurgerButton isOpen={isMenuOpen} onClick={onMenuClick} />
+            <BurgerButton 
+              isOpen={isMenuOpen} 
+              onClick={isMenuOpen ? () => onMenuClick() : onMenuClick} 
+            />
           </div>
         </div>
       </div>
