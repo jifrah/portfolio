@@ -34,17 +34,6 @@ export const mockProjects: Project[] = [
     link: 'https://example.com/microfinance-case',
     year: '2023'
   },
-  {
-    id: '4',
-    title: 'Portfolio Website Development',
-    description: 'Built a modern, responsive portfolio website with React and TypeScript',
-    image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop',
-    category: 'webDevelopment',
-    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Contentful'],
-    details: 'Developed a high-performance portfolio website with CMS integration, dynamic content loading, and modern animations. Achieved 98 Lighthouse performance score.',
-    link: 'https://github.com/example/portfolio',
-    year: '2024'
-  }
 ];
 
 export const mockBlogPosts: BlogPost[] = [

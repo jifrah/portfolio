@@ -3,17 +3,31 @@ import { Section, Container } from '../ui';
 import { ProjectFilters } from '../projects/ProjectFilters';
 import { ProjectCard } from '../projects/ProjectCard';
 import { ProjectModal } from '../projects/ProjectModal';
+import { LoadMore } from '../ui/LoadMore';
 import { useProjects } from '../../hooks/useContentful';
 import { Project, ProjectCategory } from '../../types';
 
 export const Projects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<ProjectCategory | 'all'>('dataScience');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [visibleCount, setVisibleCount] = useState(4);
   const { projects, loading, error } = useProjects();
 
   const filteredProjects = activeFilter === 'all' 
     ? projects 
     : projects.filter(p => p.category === activeFilter);
+
+  const displayedProjects = filteredProjects.slice(0, visibleCount);
+  const hasMoreProjects = filteredProjects.length > visibleCount;
+
+  const handleLoadMore = () => {
+    setVisibleCount(prev => prev + 4);
+  };
+
+  const handleFilterChange = (filter: ProjectCategory | 'all') => {
+    setActiveFilter(filter);
+    setVisibleCount(4); // Reset visible count when filter changes
+  };
 
   if (loading) {
     return (
@@ -45,11 +59,11 @@ export const Projects: React.FC = () => {
           
           <ProjectFilters 
             activeFilter={activeFilter} 
-            onFilterChange={setActiveFilter} 
+            onFilterChange={handleFilterChange} 
           />
 
           <div className="space-y-8">
-            {filteredProjects.map((project) => (
+            {displayedProjects.map((project) => (
               <ProjectCard
                 key={project.id}
                 project={project}
@@ -57,6 +71,11 @@ export const Projects: React.FC = () => {
               />
             ))}
           </div>
+
+          <LoadMore 
+            hasMore={hasMoreProjects}
+            onLoadMore={handleLoadMore}
+          />
         </Container>
       </Section>
 
