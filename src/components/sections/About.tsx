@@ -12,7 +12,7 @@ const accordionItems = [
   },
   {
     title: "Always in beta",
-    content: "I believe great product managers are systems thinkers and lifelong learners. Alongside formal training in business, data, and innovation—including a top-tier MBA in Technology and Innovation and MSc in Big Data with deep learning specialization—I continuously upskill in full-stack development, DevOps, design thinking, and product strategy. This technical fluency helps me partner deeply with engineers, ask better questions, and turn complexity into clarity for both users and stakeholders."
+    content: "I believe great product managers are systems thinkers and lifelong learners. Alongside formal training in business, data, and innovation—including a top-tier MBA in Technology and Innovation and an MSc in Big Data with deep learning specialization—I continuously upskill in full-stack development, DevOps, design thinking, and product strategy. This technical fluency helps me partner closely with engineers, ask better questions, and turn complexity into clarity for users and stakeholders."
   }
 ];
 
@@ -27,7 +27,7 @@ export const About: React.FC = () => {
         {/* Container with background and rounded corners taking full width */}
         <div className="bg-[#FCFCF9] rounded-[40px] p-6 md:p-8">
           {/* Desktop layout: image on left, accordion on right */}
-          <div className="flex flex-col min-h-[425px] lg:flex-row gap-6 lg:gap-8">
+          <div className="flex flex-col h-auto lg:flex-row min-h-[60vh] gap-6">
             {/* Image - full width on mobile, left side on desktop */}
             <div className="w-full lg:w-1/2 flex justify-center">
               <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-[#F5F5F7]">
@@ -40,7 +40,7 @@ export const About: React.FC = () => {
             </div>
             
             {/* Accordion - below image on mobile, right side on desktop */}
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-1/2 self-center">
               <Accordion items={accordionItems} />
             </div>
           </div>
