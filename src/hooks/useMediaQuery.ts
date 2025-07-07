@@ -37,5 +37,5 @@ export const useMediaQuery = (query: string): boolean => {
 };
 
 export const useIsMobile = (): boolean => {
-  return useMediaQuery('(max-width: 834px)');
+  return useMediaQuery('(max-width: 734px)');
 };

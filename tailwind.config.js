@@ -18,8 +18,12 @@ module.exports = {
         'text-light': '#CFCFCF'
       },
       screens: {
-        'mobile': '734px',
-      }
+        'sm': '640px',
+        'md': '734px',  // Changed from default 768px or 834px
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+        }
     },
   },
   plugins: [],

@@ -1,64 +1,64 @@
 import React from 'react';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 
 export const Hero: React.FC = () => {
+  const isMobile = useMediaQuery('(max-width: 734px)');
+
   return (
-    <section id="hero" className="min-h-screen flex flex-col justify-center items-center px-6 text-center bg-[#FCFCF9]">
-      {/* H1 - Name */}
-      <h1 className="text-4xl md:text-6xl lg:text-7xl font-normal leading-tight mb-4 font-nunito text-[#050505]">
-        Jérémy Ifrah
-      </h1>
-      
-      {/* H2 - Welcome */}
-      <h2 className="text-xl md:text-2xl lg:text-3xl font-light mb-12 font-nunito text-[#1D1D1F]">
-        Welcome to my portfolio
-      </h2>
-      
-      {/* Portrait Image with Apple-inspired design */}
-      <div className="relative mb-12">
-        {/* Main image container with sophisticated shadows */}
-        <div className="relative">
-          {/* Outer glow shadow */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#050505]/5 to-[#050505]/10 rounded-[2rem] blur-3xl transform translate-y-4 scale-105"></div>
-          
-          {/* Image container with border and inner shadow */}
-          <div className="relative bg-white p-1 rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.12),0_2px_10px_rgba(0,0,0,0.08)]">
-            <div className="relative rounded-[1.75rem] overflow-hidden">
-              {/* Subtle inner border */}
-              <div className="absolute inset-0 rounded-[1.75rem] ring-1 ring-[#050505]/5 ring-inset"></div>
+    <section id="hero" className="relative min-h-screen bg-[#FCFCF9] overflow-hidden">
+      {/* Content container with proper padding and centering */}
+      <div className="relative z-10 min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24">
+        {/* Main content grid */}
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+            {/* Text content */}
+            <div className="text-center md:text-left">
+              {/* Name with refined typography */}
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-normal tracking-tight text-[#050505] font-nunito mb-8 md:mb-12">
+                Jérémy Ifrah
+              </h1>
               
-              <img
-                src="/images/jeremy-portrait-800w.webp"
-                srcSet="
-                  /images/jeremy-portrait-400w.webp 400w,
-                  /images/jeremy-portrait-800w.webp 800w,
-                  /images/jeremy-portrait-1200w.webp 1200w
-                "
-                sizes="(max-width: 834px) 280px, (max-width: 1024px) 320px, 360px"
-                alt="Jeremy Ifrah - Product Manager"
-                className="w-[280px] h-[350px] md:w-[320px] md:h-[400px] lg:w-[360px] lg:h-[450px] object-cover transition-transform duration-700 ease-out hover:scale-[1.02]"
-                loading="eager"
-              />
-              
-              {/* Subtle overlay for depth */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/3 via-transparent to-transparent pointer-events-none"></div>
+              {/* Tagline with better spacing and hierarchy */}
+              <p className="text-2xl md:text-3xl lg:text-4xl font-light text-[#1D1D1F] font-nunito leading-tight">
+                Making great products{' '}
+                <em className="font-medium text-[#050505] not-italic">actually</em>{' '}
+                happen
+              </p>
+            </div>
+            
+            {/* Portrait container - refined design */}
+            <div className="relative mt-12 md:mt-0">
+              <div className="relative mx-auto w-full max-w-[280px] md:max-w-[400px] lg:max-w-[500px]">
+                {/* Subtle background gradient effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#F5F5F7] to-transparent rounded-3xl blur-3xl scale-110 opacity-60" />
+                
+                {/* Image wrapper with aspect ratio container */}
+                <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-[#F5F5F7]">
+                  <img
+                    src="/images/jeremy-ifrah-portrait-1200w.webp"
+                    srcSet={`
+                      /images/jeremy-ifrah-portrait-400w.webp 400w,
+                      /images/jeremy-ifrah-portrait-800w.webp 800w,
+                      /images/jeremy-ifrah-portrait-1200w.webp 1200w
+                    `}
+                    sizes="(max-width: 834px) 280px, (max-width: 1280px) 400px, 500px"
+                    alt="Jérémy Ifrah"
+                    className="w-full h-full object-cover object-center"
+                    loading="eager"
+                    decoding="async"
+                  />
+                  
+                  {/* Subtle gradient overlay for depth */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/5 via-transparent to-transparent pointer-events-none" />
+                </div>
+              </div>
             </div>
           </div>
-          
-          {/* Floating accent elements */}
-          <div className="absolute -top-2 -right-2 w-4 h-4 bg-gradient-to-br from-[#050505]/8 to-[#050505]/4 rounded-full blur-sm"></div>
-          <div className="absolute -bottom-1 -left-1 w-3 h-3 bg-gradient-to-br from-[#050505]/6 to-[#050505]/3 rounded-full blur-sm"></div>
         </div>
       </div>
       
-      {/* Modern Blockquote with left accent */}
-      <div className="relative max-w-3xl mx-auto mb-8">
-        {/* Left accent border */}
-        <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#050505] rounded-full"></div>
-        
-        <p className="text-xl md:text-3xl lg:text-4xl font-light leading-relaxed text-[#050505] font-nunito pl-8 italic">
-          Making great products <em className="font-medium">actually</em> happen
-        </p>
-      </div>
+      {/* Optional: Subtle decorative elements */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#E5E5E5] to-transparent" />
     </section>
   );
 };
