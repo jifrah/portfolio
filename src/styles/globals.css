@@ -64,6 +64,14 @@
   }
 }
 
+/* Image optimization for better quality */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /* Animations */
 @keyframes fadeIn {
   from {
