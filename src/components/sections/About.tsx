@@ -1,28 +1,49 @@
 import React from 'react';
-import { Section, Container } from '../ui';
+import { Section, Container, Accordion } from '../ui';
+
+const accordionItems = [
+  {
+    title: "Culture-first product strategy",
+    content: "Before product management, I spent years leading disruptive projects in luxury hospitality—environments where the bar is high, the pace is relentless, and change only sticks when it's deeply aligned with people and values. That experience shaped how I work today: I treat stakeholder alignment and cultural integration as core parts of product strategy. Because even the smartest roadmap will fail if the teams behind it aren't bought in."
+  },
+  {
+    title: "Relentless focus on impact",
+    content: "My entrepreneurial background taught me that velocity means nothing without value. When resources are limited, every sprint, experiment, and release has to earn its place. I bring that mindset into every product I touch—prioritizing outcomes over output, validating assumptions early, and building lean to learn fast. It's a discipline that proves invaluable in mission-driven, resource-constrained environments where smart trade-offs make all the difference."
+  },
+  {
+    title: "Always in beta",
+    content: "I believe great product managers are systems thinkers and lifelong learners. Alongside formal training in business, data, and innovation—including a Master's in Big Data focused on AI—I continuously upskill in full-stack development, DevOps, design thinking, and product strategy. This technical fluency helps me partner deeply with engineers, ask better questions, and turn complexity into clarity for both users and stakeholders."
+  }
+];
 
 export const About: React.FC = () => {
   return (
     <Section id="about" variant="lighter">
-      <Container maxWidth="md">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-playfair">
+      <Container>
+        <h2 className="text-[28px] md:text-[48px] font-nunito font-semibold text-left mb-12">
           About Me
         </h2>
         
-        <div className="text-center space-y-6">
-          <p className="text-base md:text-lg leading-relaxed text-[#1D1D1F] font-nunito">
-            Hello, I'm Jérémy Ifrah, an accomplished Senior Product Manager with extensive 
-            business expertise and a solid foundation in data science.
-          </p>
-          
-          <p className="text-base md:text-lg leading-relaxed text-[#1D1D1F] font-nunito">
-            Known for my adaptability and quick learning, I excel in developing innovative 
-            digital experiences that drive success.
-          </p>
-          
-          <p className="text-base md:text-lg font-semibold text-[#050505] font-nunito">
-            Let's transform challenges into opportunities and achieve excellence together!
-          </p>
+        {/* Container with background and rounded corners taking full width */}
+        <div className="bg-[#FCFCF9] rounded-xl p-6 md:p-8">
+          {/* Desktop layout: image on left, accordion on right */}
+          <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+            {/* Image - full width on mobile, left side on desktop */}
+            <div className="w-full md:w-1/2">
+              <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-[#F5F5F7]">
+                <img 
+                  src="/images/photo_Jeremy_About.png" 
+                  alt="Jérémy Ifrah - About"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            
+            {/* Accordion - below image on mobile, right side on desktop */}
+            <div className="w-full md:w-1/2">
+              <Accordion items={accordionItems} />
+            </div>
+          </div>
         </div>
       </Container>
     </Section>
