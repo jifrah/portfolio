@@ -39,7 +39,7 @@ export const Projects: React.FC = () => {
     <>
       <Section id="projects">
         <Container>
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 font-playfair">
+          <h2 className="text-[28px] md:text-[48px] font-nunito font-semibold text-left mb-12">
             Projects
           </h2>
           

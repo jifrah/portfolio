@@ -44,7 +44,7 @@ export const Accordion: React.FC<AccordionProps> = ({ items, className = '' }) =
           )}
           {/* Separator line - not shown on last item */}
           {index < items.length - 1 && (
-            <div className="border-b border-gray-200 my-2" />
+            <div className="border-b border-[#dadde1] my-2" />
           )}
         </div>
       ))}

@@ -12,8 +12,7 @@ export const ProjectFilters: React.FC<ProjectFiltersProps> = ({
 }) => {
   const filters: Array<{ value: ProjectCategory | 'all'; label: string }> = [
     { value: 'product', label: 'Product Work' },
-    { value: 'dataScience', label: 'Data Science' },
-    { value: 'webDevelopment', label: 'Web Development' }
+    { value: 'dataScience', label: 'Data Science' }
   ];
 
   return (
@@ -22,7 +21,7 @@ export const ProjectFilters: React.FC<ProjectFiltersProps> = ({
         <button
           key={filter.value}
           onClick={() => onFilterChange(filter.value)}
-          className={`px-6 py-3 rounded-full font-medium whitespace-nowrap transition-all font-nunito ${
+          className={`px-6 h-[44px] rounded-full font-medium whitespace-nowrap transition-all font-nunito ${
             activeFilter === filter.value 
               ? filter.value === 'dataScience' 
                 ? 'bg-[#050505] text-[#FCFCF9]'
