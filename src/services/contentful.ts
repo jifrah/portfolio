@@ -1,3 +1,4 @@
+// src/services/contentful.ts
 import { createClient } from 'contentful';
 import { Project, BlogPost } from '../types';
 import { ContentfulProjectSkeleton, ContentfulBlogPostSkeleton } from '../types/contentful';
@@ -25,7 +26,7 @@ export const getProjects = async (): Promise<Project[]> => {
         category: item.fields.category as Project['category'],
         technologies: item.fields.technologies || [],
         details: item.fields.details || '',
-        link: '', // Since link field doesn't exist in Contentful, provide empty string
+        link: item.fields.url || '', // Use the new URL field from Contentful
         year: item.fields.year || ''
       };
     });
@@ -57,7 +58,9 @@ export const getBlogPosts = async (): Promise<BlogPost[]> => {
           day: 'numeric'
         }) : '',
         image: imageUrl ? `https:${imageUrl}` : '',
-        slug: item.fields.slug || ''
+        slug: item.fields.slug || '',
+        // Add URL field mapping if you want to use it for blog posts
+        url: item.fields.url || ''
       };
     });
   } catch (error) {

@@ -1,3 +1,4 @@
+// src/components/projects/ProjectCard.tsx
 import React from 'react';
 import { Project } from '../../types';
 import { TechIcon } from '../ui/TechIcon';
@@ -32,8 +33,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
           />
         </div>
         <div className="p-6">
-          {/* Title */}
-          <h3 className="text-[24px] font-medium font-nunito text-[#050505] mb-3">
+          {/* Title with hover underline */}
+          <h3 className="text-[24px] font-medium font-nunito text-[#050505] mb-3 group-hover:underline transition-all duration-300">
             {project.title}
           </h3>
           
@@ -75,8 +76,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
         {/* Content - 2/3 width */}
         <div className="w-2/3 p-8 flex flex-col justify-between">
           <div>
-            {/* Title */}
-            <h3 className="text-[24px] font-medium font-nunito text-[#050505] mb-3">
+            {/* Title with hover underline */}
+            <h3 className="text-[28px] font-medium font-nunito text-[#050505] mb-4 group-hover:underline transition-all duration-300">
               {project.title}
             </h3>
             
@@ -86,7 +87,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
             </p>
             
             {/* Tech Stack - Icons */}
-            <div className="flex flex-wrap gap-4 mb-4">
+            <div className="flex flex-wrap gap-4 mb-6">
               {project.technologies.map((tech) => (
                 <div key={tech} className="flex flex-col items-center w-12">
                   <TechIcon techName={tech} size={31} />

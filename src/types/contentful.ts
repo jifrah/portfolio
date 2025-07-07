@@ -1,3 +1,4 @@
+// src/types/contentful.ts
 import { Asset, Entry, EntrySkeletonType } from 'contentful';
 import { Document } from '@contentful/rich-text-types';
 
@@ -10,6 +11,7 @@ export interface ContentfulProjectFields {
   technologies?: string[];
   details?: string;
   year?: string;
+  url?: string; // Add the new URL field
 }
 
 export interface ContentfulBlogPostFields {
@@ -19,6 +21,7 @@ export interface ContentfulBlogPostFields {
   image?: Asset;
   slug?: string;
   content?: Document; // RichText field from Contentful
+  url?: string; // Add URL field for blog posts too if needed
 }
 
 // Create skeleton types for Contentful v11
