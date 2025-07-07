@@ -1,5 +1,6 @@
 import React from 'react';
 import { Project } from '../../types';
+import { TechIcon } from '../ui/TechIcon';
 
 interface ProjectCardProps {
   project: Project;
@@ -41,15 +42,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
             {project.description}
           </p>
           
-          {/* Tech Stack */}
-          <div className="flex flex-wrap gap-2 mb-4">
+          {/* Tech Stack - Icons */}
+          <div className="flex flex-wrap gap-3 mb-4">
             {project.technologies.map((tech) => (
-              <span 
-                key={tech} 
-                className="px-3 py-1.5 bg-[#F5F5F7] text-[#050505] text-sm rounded-full font-medium font-nunito"
-              >
-                {tech}
-              </span>
+              <div key={tech} className="flex flex-col items-center">
+                <TechIcon techName={tech} size={31} />
+                <span className="text-[10px] font-semibold text-[#050505] font-nunito mt-1 text-center leading-tight max-w-[40px]">
+                  {tech}
+                </span>
+              </div>
             ))}
           </div>
           
@@ -72,7 +73,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
         </div>
         
         {/* Content - 2/3 width */}
-        <div className="w-2/3 m-w[469] p-8 flex flex-col justify-between">
+        <div className="w-2/3 p-8 flex flex-col justify-between">
           <div>
             {/* Title */}
             <h3 className="text-[24px] font-medium font-nunito text-[#050505] mb-3">
@@ -84,15 +85,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
               {project.description}
             </p>
             
-            {/* Tech Stack */}
-            <div className="flex flex-wrap gap-2 mb-4">
+            {/* Tech Stack - Icons */}
+            <div className="flex flex-wrap gap-4 mb-4">
               {project.technologies.map((tech) => (
-                <span 
-                  key={tech} 
-                  className="px-3 py-1.5 bg-[#F5F5F7] text-[#050505] text-sm rounded-full font-medium font-nunito"
-                >
-                  {tech}
-                </span>
+                <div key={tech} className="flex flex-col items-center">
+                  <TechIcon techName={tech} size={31} />
+                  <span className="text-[10px] font-semibold text-[#050505] font-nunito mt-1 text-center leading-tight max-w-[40px]">
+                    {tech}
+                  </span>
+                </div>
               ))}
             </div>
           </div>

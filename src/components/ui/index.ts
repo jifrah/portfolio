@@ -6,3 +6,4 @@ export { Input, TextArea } from './Input';
 export { LoadMore } from './LoadMore';
 export { Modal } from './Modal';
 export { Section } from './Section';
+export { TechIcon } from './TechIcon';
