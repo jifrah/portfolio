@@ -3,7 +3,7 @@ export interface Project {
   title: string;
   description: string;
   image: string;
-  category: 'product' | 'dataScience' | 'webDevelopment';
+  category: 'product' | 'dataScience';
   technologies: string[];
   details: string;
   link: string;

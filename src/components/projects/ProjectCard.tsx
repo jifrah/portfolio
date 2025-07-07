@@ -11,8 +11,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
   const getCategoryLabel = (category: Project['category']) => {
     const labels = {
       dataScience: 'Data Science',
-      product: 'Product',
-      webDevelopment: 'Web Development'
+      product: 'Product'
     };
     return labels[category];
   };

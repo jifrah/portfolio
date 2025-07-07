@@ -21,7 +21,7 @@ export const ProjectFilters: React.FC<ProjectFiltersProps> = ({
         <button
           key={filter.value}
           onClick={() => onFilterChange(filter.value)}
-          className={`px-6 h-[44px] rounded-full font-medium whitespace-nowrap transition-all font-nunito ${
+          className={`px-6 h-[31px] rounded-full font-medium whitespace-nowrap transition-all font-nunito ${
             activeFilter === filter.value 
               ? filter.value === 'dataScience' 
                 ? 'bg-[#050505] text-[#FCFCF9]'
