@@ -59,7 +59,7 @@ const techLogoMap: Record<string, string> = {
 
 export const TechIcon: React.FC<TechIconProps> = ({ 
   techName, 
-  size = 24, 
+  size = 12, 
   className = "" 
 }) => {
   const logoPath = techLogoMap[techName];
