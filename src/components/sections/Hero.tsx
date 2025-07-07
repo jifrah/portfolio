@@ -5,7 +5,7 @@ export const Hero: React.FC = () => {
   const isMobile = useMediaQuery('(max-width: 734px)');
 
   return (
-    <section id="hero" className="min-h-screen bg-[#FCFCF9] py-[120px] px-[120px] md:py-[150px] md:px-[150px]">
+    <section id="hero" className="min-h-screen bg-[#FCFCF9] py-[90px] px-[90px] md:py-[120px] md:px-[120px]">
       <div className="max-w-7xl mx-auto">
         {/* Text container */}
         <div className={`mb-12 md:mb-16 ${isMobile ? 'space-y-6' : 'flex justify-between items-end'}`}>

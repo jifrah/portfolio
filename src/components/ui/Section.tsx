@@ -19,7 +19,7 @@ export const Section: React.FC<SectionProps> = ({
   };
 
   return (
-    <section id={id} className={`py-[120px] px-[120px] md:py-[150px] md:px-[150px] ${bgColors[variant]} ${className}`}>
+    <section id={id} className={`py-[90px] px-[90px] md:py-[120px] md:px-[120px] ${bgColors[variant]} ${className}`}>
       {children}
     </section>
   );
