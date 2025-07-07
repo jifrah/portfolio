@@ -45,9 +45,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
           {/* Tech Stack - Icons */}
           <div className="flex flex-wrap gap-3 mb-4">
             {project.technologies.map((tech) => (
-              <div key={tech} className="flex flex-col items-center">
+              <div key={tech} className="flex flex-col items-center w-12">
                 <TechIcon techName={tech} size={31} />
-                <span className="text-[10px] font-semibold text-[#050505] font-nunito mt-1 text-center leading-tight max-w-[40px]">
+                <span className="text-[10px] font-semibold text-[#050505] font-nunito mt-1 text-center leading-tight h-8 flex items-center justify-center w-full">
                   {tech}
                 </span>
               </div>
@@ -88,9 +88,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
             {/* Tech Stack - Icons */}
             <div className="flex flex-wrap gap-4 mb-4">
               {project.technologies.map((tech) => (
-                <div key={tech} className="flex flex-col items-center">
+                <div key={tech} className="flex flex-col items-center w-12">
                   <TechIcon techName={tech} size={31} />
-                  <span className="text-[10px] font-semibold text-[#050505] font-nunito mt-1 text-center leading-tight max-w-[40px]">
+                  <span className="text-[10px] font-semibold text-[#050505] font-nunito mt-1 text-center leading-tight h-8 flex items-center justify-center w-full">
                     {tech}
                   </span>
                 </div>

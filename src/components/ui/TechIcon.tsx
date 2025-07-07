@@ -11,7 +11,7 @@ const techLogoMap: Record<string, string> = {
   // Data Science & AI
   'Python': '/images/logo/python-icon.svg',
   'TensorFlow': '/images/logo/tensorflow-icon.svg',
-  'PyTorch': '/images/logo/pytorch-icon.svg', // You'll need this file
+  'PyTorch': '/images/logo/pytorch-icon.svg',
   'Ultralytics': '/images/logo/Ultralytics_Logomark_Original.svg',
   'Matplotlib': '/images/logo/Matplotlib.svg',
   'Pandas': '/images/logo/Pandas.svg',
@@ -54,7 +54,7 @@ const techLogoMap: Record<string, string> = {
   'Git': '/images/logo/git-scm-icon.svg',
   
   // CMS
-  'Contentful': '/images/logo/contentful-icon.svg' // You'll need this file if used
+  'Contentful': '/images/logo/contentful-icon.svg'
 };
 
 export const TechIcon: React.FC<TechIconProps> = ({ 
@@ -68,12 +68,12 @@ export const TechIcon: React.FC<TechIconProps> = ({
   if (!logoPath) {
     return (
       <div 
-        className={` rounded-full flex items-center justify-center ${className}`}
-        style={{ width: size, height: size }}
+        className={`bg-[#F5F5F7] rounded-full flex items-center justify-center ${className}`}
+        style={{ width: size, height: size, minWidth: size, minHeight: size }}
       >
         <span 
           className="text-[#050505] font-nunito font-semibold"
-          style={{ fontSize: Math.max(8, size * 0.3) }}
+          style={{ fontSize: Math.max(8, size * 0.3), lineHeight: 1 }}
         >
           {techName.slice(0, 2).toUpperCase()}
         </span>
@@ -83,14 +83,15 @@ export const TechIcon: React.FC<TechIconProps> = ({
   
   return (
     <div 
-      className={`flex items-center justify-center ${className}`}
-      style={{ width: size, height: size }}
+      className={`flex items-center justify-center shrink-0 ${className}`}
+      style={{ width: size, height: size, minWidth: size, minHeight: size }}
     >
       <img 
         src={logoPath} 
         alt={techName}
         className="w-full h-full object-contain"
         title={techName}
+        style={{ display: 'block' }}
       />
     </div>
   );
