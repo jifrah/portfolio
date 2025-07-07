@@ -5,60 +5,66 @@ export const Hero: React.FC = () => {
   const isMobile = useMediaQuery('(max-width: 734px)');
 
   return (
-    <section id="hero" className="relative min-h-screen bg-[#FCFCF9] overflow-hidden">
-      {/* Content container with proper padding and centering */}
-      <div className="relative z-10 min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24">
-        {/* Main content grid */}
-        <div className="max-w-7xl mx-auto w-full">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-            {/* Text content */}
-            <div className="text-center md:text-left">
-              {/* Name with refined typography */}
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-normal tracking-tight text-[#050505] font-nunito mb-8 md:mb-12">
-                Jérémy Ifrah
-              </h1>
-              
-              {/* Tagline with better spacing and hierarchy */}
-              <p className="text-2xl md:text-3xl lg:text-4xl font-light text-[#1D1D1F] font-nunito leading-tight">
-                Making great products{' '}
-                <em className="font-medium text-[#050505] not-italic">actually</em>{' '}
-                happen
-              </p>
-            </div>
-            
-            {/* Portrait container - refined design */}
-            <div className="relative mt-12 md:mt-0">
-              <div className="relative mx-auto w-full max-w-[280px] md:max-w-[400px] lg:max-w-[500px]">
-                {/* Subtle background gradient effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#F5F5F7] to-transparent rounded-3xl blur-3xl scale-110 opacity-60" />
-                
-                {/* Image wrapper with aspect ratio container */}
-                <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-[#F5F5F7]">
-                  <img
-                    src="/images/jeremy-ifrah-portrait-1200w.webp"
-                    srcSet={`
-                      /images/jeremy-ifrah-portrait-400w.webp 400w,
-                      /images/jeremy-ifrah-portrait-800w.webp 800w,
-                      /images/jeremy-ifrah-portrait-1200w.webp 1200w
-                    `}
-                    sizes="(max-width: 834px) 280px, (max-width: 1280px) 400px, 500px"
-                    alt="Jérémy Ifrah"
-                    className="w-full h-full object-cover object-center"
-                    loading="eager"
-                    decoding="async"
-                  />
-                  
-                  {/* Subtle gradient overlay for depth */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/5 via-transparent to-transparent pointer-events-none" />
-                </div>
-              </div>
-            </div>
+    <section id="hero" className="min-h-screen bg-[#FCFCF9] px-6 md:px-12 lg:px-24 pt-24 md:pt-20 pb-12">
+      <div className="max-w-7xl mx-auto">
+        {/* Text container */}
+        <div className={`mb-12 md:mb-16 ${isMobile ? 'space-y-6' : 'flex justify-between items-end'}`}>
+          {/* Heading - always on left */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tighter text-[#050505] font-nunito">
+            Jérémy Ifrah
+          </h1>
+          
+          {/* Quote - right on desktop, below on mobile */}
+          <p className={`text-xl md:text-2xl lg:text-3xl font-normal tracking-tight text-[#1D1D1F] font-nunito ${
+            isMobile ? '' : 'text-right max-w-md'
+          }`}>
+            Making great products happen
+          </p>
+        </div>
+        
+        {/* Image container */}
+        <div className="w-full mx-auto" style={{ maxWidth: '1920px' }}>
+          <div 
+            className="relative mx-auto overflow-hidden rounded-[40px] bg-[#F5F5F7] flex justify-center items-center"
+            style={{
+              width: '87.5%',
+              height: '80vh',
+              minHeight: '680px',
+              maxHeight: '1260px'
+            }}
+          >
+            <picture className="w-full h-full">
+              {/* Mobile images - portrait orientation */}
+              <source 
+                media="(max-width: 734px)" 
+                srcSet={`
+                  /images/jeremy-ifrah-portrait-mobile-550w.webp 550w,
+                  /images/jeremy-ifrah-portrait-mobile-1100w.webp 1100w
+                `}
+                sizes="87.5vw"
+              />
+              {/* Desktop images - landscape orientation */}
+              <source 
+                media="(min-width: 735px)" 
+                srcSet={`
+                  /images/jeremy-ifrah-portrait-desktop-1200w.webp 1200w,
+                  /images/jeremy-ifrah-portrait-desktop-1600w.webp 1600w,
+                  /images/jeremy-ifrah-portrait-desktop-2400w.webp 2400w
+                `}
+                sizes="87.5vw"
+              />
+              {/* Fallback image */}
+              <img
+                src="/images/jeremy-ifrah-portrait-desktop-1600w.webp"
+                alt="Jérémy Ifrah"
+                className="w-full h-full object-cover object-center"
+                loading="eager"
+                decoding="async"
+              />
+            </picture>
           </div>
         </div>
       </div>
-      
-      {/* Optional: Subtle decorative elements */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#E5E5E5] to-transparent" />
     </section>
   );
 };
