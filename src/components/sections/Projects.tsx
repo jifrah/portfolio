@@ -9,7 +9,7 @@ import { Project, ProjectCategory } from '../../types';
 
 export const Projects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<ProjectCategory | 'all'>('dataScience');
-  const [visibleCount, setVisibleCount] = useState(4);
+  const [visibleCount, setVisibleCount] = useState(3);
   const { projects, loading, error } = useProjects();
 
   const filteredProjects = activeFilter === 'all' 

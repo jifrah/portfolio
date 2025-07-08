@@ -1,6 +1,6 @@
 // src/components/projects/ProjectCard.tsx
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { CircleArrowRight } from 'lucide-react';
 import { Project } from '../../types';
 
 interface ProjectCardProps {
@@ -35,9 +35,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
         {/* Learn More Link - Only clickable element */}
         <button
           onClick={onClick}
-          className="flex items-center text-[#050505] text-[14px] font-medium font-nunito hover:opacity-70 transition-opacity cursor-pointer"
+          className="flex items-center text-[#050505] text-[16px] font-bold font-nunito hover:opacity-70 transition-opacity cursor-pointer"
         >
-          <ArrowRight className="w-4 h-4 mr-1" />
+          <CircleArrowRight className="w-5 h-5 mr-1 5" strokeWidth={1} />
           Learn more
         </button>
       </div>
