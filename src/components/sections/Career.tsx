@@ -77,17 +77,16 @@ export const Career: React.FC = () => {
                 </div>
                 
                 {/* Center dot - visible on desktop */}
-                <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center justify-center">
+                <div className="hidden md:flex absolute left-1/2 top-0 transform -translate-x-1/2 items-center justify-center">
                   <div className="w-4 h-4 bg-[#050505] rounded-full" />
-                  <div className="absolute w-8 h-8 bg-[#050505] bg-opacity-10 rounded-full animate-ping" />
                 </div>
                 
                 {/* Spacer for desktop layout */}
                 <div className="hidden md:block w-5/12" />
                 
                 {/* Mobile timeline indicator */}
-                <div className="md:hidden absolute left-0 top-8 w-2 h-2 bg-[#050505] rounded-full" />
-                <div className="md:hidden absolute left-0 top-10 bottom-0 w-[2px] bg-[#E5E5E5]" />
+                <div className="md:hidden absolute left-0 top-0 w-2 h-2 bg-[#050505] rounded-full" />
+                <div className="md:hidden absolute left-0 top-2 bottom-0 w-[2px] bg-[#E5E5E5]" />
               </div>
             ))}
           </div>
