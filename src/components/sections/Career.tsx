@@ -87,7 +87,7 @@ export const Career: React.FC = () => {
         {/* Timeline container - unified design for all screen sizes */}
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-6 top-0 w-[2px] h-full bg-[#E5E5E5]" />
+          <div className="absolute left-5 top-0 w-[2px] h-full bg-[#E5E5E5]" />
           
           {/* Timeline items */}
           <div className="space-y-12">
@@ -135,8 +135,8 @@ export const Career: React.FC = () => {
                 </div>
                 
                 {/* Timeline dot */}
-                <div className="absolute left-5 top-8 transform -translate-x-1/2 z-10">
-                  <div className={`w-4 h-4 bg-[#FCFCF9] rounded-full border-2 border-[#E5E5E5] transition-all duration-300 ${
+                <div className="absolute left-5 top-2 transform -translate-x-1/2 z-10">
+                  <div className={`w-6 h-6 bg-[#FCFCF9] rounded-full border-2 border-[#E5E5E5] transition-all duration-300 ${
                     item.isEducation ? 'shadow-lg' : 'shadow-sm'
                   }`}></div>
                 </div>
