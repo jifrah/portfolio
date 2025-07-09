@@ -13,9 +13,9 @@ export const Blog: React.FC = () => {
 
   if (loading) {
     return (
-      <Section id="articles">
+      <Section id="articles" variant="lighter">
         <Container>
-          <div className="text-center">Loading blog posts...</div>
+          <div className="text-center">Loading articles...</div>
         </Container>
       </Section>
     );
@@ -23,19 +23,19 @@ export const Blog: React.FC = () => {
 
   if (error) {
     return (
-      <Section id="articles">
+      <Section id="articles" variant="lighter">
         <Container>
-          <div className="text-center text-red-600">Error loading blog posts</div>
+          <div className="text-center text-red-600">Error loading articles</div>
         </Container>
       </Section>
     );
   }
 
   return (
-    <Section id="articles">
+    <Section id="articles" variant="lighter">
       <Container>
         <h2 className="text-[28px] md:text-[48px] font-nunito font-semibold text-left mb-12">
-          Blog
+          Articles
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

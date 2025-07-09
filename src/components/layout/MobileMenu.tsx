@@ -1,3 +1,4 @@
+// src/components/layout/MobileMenu.tsx
 import React, { useEffect } from 'react';
 import { useSmoothScroll } from '../../hooks/useSmoothScroll';
 import { NAVIGATION_ITEMS } from '../../utils/constants';
@@ -11,11 +12,17 @@ interface MobileMenuProps {
 export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onContactClick }) => {
   const scrollToSection = useSmoothScroll();
 
+  // Use the navigation items directly from constants (Contact is already included)
+  const mobileNavItems = NAVIGATION_ITEMS;
+
   const handleNavClick = (item: string) => {
     if (item === 'Contact') {
-      onContactClick();
+      // Scroll to the contact section
+      scrollToSection('lets-connect');
     } else {
-      scrollToSection(item.toLowerCase().replace(' ', '-'));
+      // Handle other navigation items
+      const sectionId = item.toLowerCase().replace(' ', '-');
+      scrollToSection(sectionId);
     }
     onClose();
   };
@@ -56,8 +63,8 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onConta
         />
         
         {/* Navigation items - left aligned, with space for header */}
-        <nav className="relative px-6 pt-20"> {/* Increased padding to account for header height */}
-          {[...NAVIGATION_ITEMS, 'Contact'].map((item, index) => (
+        <nav className="relative px-6 pt-20">
+          {mobileNavItems.map((item, index) => (
             <button
               key={item}
               onClick={() => handleNavClick(item)}

@@ -9,7 +9,7 @@ import {
   Contact 
 } from './components/sections';
 import { Modal } from './components/ui';
-import { ContactForm } from './components/ContactForm'; // Import from separate ContactForm file
+import { ContactForm } from './components/ContactForm';
 
 const App: React.FC = () => {
   // State management
@@ -43,7 +43,6 @@ const App: React.FC = () => {
       {/* Header Navigation */}
       <Header 
         onMenuClick={handleMobileMenuToggle}
-        onContactClick={handleContactModalOpen}
         isMenuOpen={isMobileMenuOpen}
       />
       
@@ -56,7 +55,7 @@ const App: React.FC = () => {
       
       {/* Main Content Sections */}
       <main>
-        {/* Hero Section */}
+        {/* Hero Section - Primary Background */}
         <Hero />
         
         {/* About Section - Secondary Background */}

@@ -1,5 +1,6 @@
+// src/components/layout/Footer.tsx
 import React from 'react';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -16,7 +17,7 @@ export const Footer: React.FC = () => {
           </div>
           <div className="flex space-x-6">
             <a 
-              href="https://linkedin.com/in/jeremyifrah" 
+              href="https://www.linkedin.com/in/jeremy-ifrah/" 
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[#CFCFCF] transition-colors"
@@ -25,22 +26,13 @@ export const Footer: React.FC = () => {
               <Linkedin className="w-6 h-6" />
             </a>
             <a 
-              href="https://github.com/jeremyifrah" 
+              href="https://github.com/jifrah" 
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[#CFCFCF] transition-colors"
               aria-label="GitHub"
             >
               <Github className="w-6 h-6" />
-            </a>
-            <a 
-              href="https://twitter.com/jeremyifrah" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[#CFCFCF] transition-colors"
-              aria-label="Twitter"
-            >
-              <Twitter className="w-6 h-6" />
             </a>
           </div>
         </div>

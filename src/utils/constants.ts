@@ -1,7 +1,9 @@
+// src/utils/constants.ts
 export const NAVIGATION_ITEMS = [
   'About',
-  'My Work',
-  'Articles'
+  'My Work', 
+  'Articles',
+  'Contact'
 ] as const;
 
 export const COLORS = {

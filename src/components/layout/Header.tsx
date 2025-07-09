@@ -1,5 +1,5 @@
+// src/components/layout/Header.tsx
 import React from 'react';
-import { Send } from 'lucide-react';
 import { useScrollVisibility } from '../../hooks/useScrollVisibility';
 import { useSmoothScroll } from '../../hooks/useSmoothScroll';
 import { NAVIGATION_ITEMS } from '../../utils/constants';
@@ -7,13 +7,20 @@ import { BurgerButton } from './BurgerButton';
 
 interface HeaderProps {
   onMenuClick: () => void;
-  onContactClick: () => void;
   isMenuOpen: boolean;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onMenuClick, onContactClick, isMenuOpen }) => {
+export const Header: React.FC<HeaderProps> = ({ onMenuClick, isMenuOpen }) => {
   const isVisible = useScrollVisibility();
   const scrollToSection = useSmoothScroll();
+  
+  const handleNavClick = (item: string) => {
+    if (item === 'Contact') {
+      scrollToSection('lets-connect');
+    } else {
+      scrollToSection(item.toLowerCase().replace(' ', '-'));
+    }
+  };
   
   return (
     <header 
@@ -35,7 +42,7 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, onContactClick, isM
             {NAVIGATION_ITEMS.map((item) => (
               <button
                 key={item}
-                onClick={() => scrollToSection(item.toLowerCase().replace(' ', '-'))}
+                onClick={() => handleNavClick(item)}
                 className="text-[#CCCCCC] hover:text-[#FCFCF9] hover:underline transition-all font-medium font-nunito"
               >
                 {item}
@@ -43,18 +50,11 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, onContactClick, isM
             ))}
           </nav>
           
-          <button
-            onClick={onContactClick}
-            className="hidden md:flex items-center justify-center p-2 hover:bg-[#1D1D1F] rounded-lg transition-colors"
-          >
-            <Send className="w-5 h-5 text-[#CCCCCC] hover:text-[#F5F5F7]" />
-          </button>
-          
-          {/* Single BurgerButton that handles both open and close */}
+          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <BurgerButton 
               isOpen={isMenuOpen} 
-              onClick={isMenuOpen ? () => onMenuClick() : onMenuClick} 
+              onClick={onMenuClick} 
             />
           </div>
         </div>

@@ -1,6 +1,7 @@
+// src/components/sections/Contact.tsx
 import React from 'react';
 import { Section, Container, Button } from '../ui';
-import { Linkedin, Mail } from 'lucide-react';
+import { Linkedin, Github } from 'lucide-react';
 
 interface ContactProps {
   onContactClick?: () => void;
@@ -8,13 +9,11 @@ interface ContactProps {
 
 export const Contact: React.FC<ContactProps> = ({ onContactClick }) => {
   const handleLinkedInClick = () => {
-    // Replace with your actual LinkedIn URL
-    window.open('https://linkedin.com/in/your-profile', '_blank');
+    window.open('https://www.linkedin.com/in/jeremy-ifrah/', '_blank');
   };
 
-  const handleEmailClick = () => {
-    // Replace with your actual email
-    window.location.href = 'mailto:your.email@example.com';
+  const handleGitHubClick = () => {
+    window.open('https://github.com/jifrah', '_blank');
   };
 
   // If onContactClick is not provided, try to get it from the parent context
@@ -28,7 +27,7 @@ export const Contact: React.FC<ContactProps> = ({ onContactClick }) => {
   };
 
   return (
-    <Section id="lets-connect" variant="lighter">
+    <Section id="lets-connect" variant="light">
       <Container maxWidth="md">
         <h2 className="text-[28px] md:text-[48px] font-nunito font-semibold text-center mb-8">
           Let's Connect
@@ -44,11 +43,11 @@ export const Contact: React.FC<ContactProps> = ({ onContactClick }) => {
             <Linkedin className="w-6 h-6 text-[#050505]" />
           </button>
           <button
-            onClick={handleEmailClick}
+            onClick={handleGitHubClick}
             className="p-3 rounded-full hover:bg-[#F5F5F7] transition-colors"
-            aria-label="Email"
+            aria-label="GitHub"
           >
-            <Mail className="w-6 h-6 text-[#050505]" />
+            <Github className="w-6 h-6 text-[#050505]" />
           </button>
         </div>
         
