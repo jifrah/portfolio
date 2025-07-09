@@ -10,7 +10,7 @@ export const Hero: React.FC = () => {
         {/* Text container */}
         <div className={`mb-12 md:mb-16 ${isMobile ? 'space-y-6' : 'flex justify-between items-end'}`}>
           {/* Heading - always on left */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tighter text-[#050505] font-nunito">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tighter text-[#050505] font-nunito">
             Jérémy Ifrah
           </h1>
           
