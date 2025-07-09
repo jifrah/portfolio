@@ -12,17 +12,11 @@ interface MobileMenuProps {
 export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onContactClick }) => {
   const scrollToSection = useSmoothScroll();
 
-  // Use the navigation items directly from constants (Contact is already included)
-  const mobileNavItems = NAVIGATION_ITEMS;
-
   const handleNavClick = (item: string) => {
     if (item === 'Contact') {
-      // Scroll to the contact section
-      scrollToSection('lets-connect');
+      onContactClick();
     } else {
-      // Handle other navigation items
-      const sectionId = item.toLowerCase().replace(' ', '-');
-      scrollToSection(sectionId);
+      scrollToSection(item.toLowerCase().replace(' ', '-'));
     }
     onClose();
   };
@@ -63,12 +57,15 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onConta
         />
         
         {/* Navigation items - left aligned, with space for header */}
-        <nav className="relative px-6 pt-20">
-          {mobileNavItems.map((item, index) => (
+        <nav className="relative px-6 pt-20 z-10"> {/* Added z-10 to ensure nav items are above overlay */}
+          {[...NAVIGATION_ITEMS, 'Contact'].map((item, index) => (
             <button
               key={item}
-              onClick={() => handleNavClick(item)}
-              className={`block w-full text-left text-[#CCCCCC] hover:text-[#FCFCF9] hover:underline text-3xl py-3 font-nunito font-medium transition-all duration-500 ease-out transform ${
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent event bubbling
+                handleNavClick(item);
+              }}
+              className={`block w-full text-left text-[#CCCCCC] hover:text-[#FCFCF9] hover:underline text-3xl py-3 font-nunito font-medium transition-all duration-500 ease-out transform relative z-10 ${
                 isOpen ? 'translate-y-0 opacity-100 translate-x-0' : 'translate-y-4 opacity-0 -translate-x-4'
               }`}
               style={{
@@ -80,9 +77,9 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onConta
           ))}
         </nav>
         
-        {/* Click anywhere to close */}
+        {/* Click anywhere to close - positioned behind navigation */}
         <div 
-          className="absolute inset-0"
+          className="absolute inset-0 z-0"
           onClick={onClose}
         />
       </div>
