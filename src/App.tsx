@@ -9,7 +9,7 @@ import {
   Contact 
 } from './components/sections';
 import { Modal } from './components/ui';
-import { Contact as ContactForm } from './components/sections/Contact';
+import { ContactForm } from './components/ContactForm'; // Import from separate ContactForm file
 
 const App: React.FC = () => {
   // State management
@@ -69,7 +69,7 @@ const App: React.FC = () => {
         <Blog />
         
         {/* Let's Connect Section - Primary Background */}
-        <Contact />
+        <Contact onContactClick={handleContactModalOpen} />
       </main>
       
       {/* Footer */}

@@ -52,7 +52,7 @@ export const ContactForm: React.FC = () => {
         {/* Name Fields */}
         <div>
           <label className="block text-sm font-semibold text-[#050505] mb-2 font-nunito">
-            Your Name <span className="text-red-500">(required)</span>
+            Your Name <span className="text-[#515154] font-extralight">(required)</span>
           </label>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -87,7 +87,7 @@ export const ContactForm: React.FC = () => {
         {/* Email Field */}
         <div>
           <label htmlFor="email" className="block text-sm font-semibold text-[#050505] mb-2 font-nunito">
-            Your Email <span className="text-red-500">(required)</span>
+            Your Email <span className="text-[#515154] font-extralight">(required)</span>
           </label>
           <Input
             id="email"
@@ -103,7 +103,7 @@ export const ContactForm: React.FC = () => {
         {/* Message Field */}
         <div>
           <label htmlFor="message" className="block text-sm font-semibold text-[#050505] mb-2 font-nunito">
-            Your Message <span className="text-red-500">(required)</span>
+            Your Message <span className="text-[#515154] font-extralight">(required)</span>
           </label>
           <TextArea
             id="message"
