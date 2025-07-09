@@ -13,12 +13,24 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
       className="bg-transparent cursor-pointer group"
       onClick={onClick}
     >
-      {/* Image */}
-      <div className="aspect-square overflow-hidden rounded-2xl mb-4">
+      {/* Image with specific shadow/translate effect */}
+      <div className="aspect-square overflow-hidden rounded-2xl mb-4 transition-all duration-300 ease-out group-hover:-translate-y-1" 
+           style={{ 
+             boxShadow: '0 0 0 rgba(118, 126, 173, 0)', 
+             transition: 'transform 300ms ease-out, box-shadow 300ms ease-out' 
+           }}
+           onMouseEnter={(e) => {
+             e.currentTarget.style.transform = 'translate(0, -4px)';
+             e.currentTarget.style.boxShadow = '14px 14px 40px #767ead1f';
+           }}
+           onMouseLeave={(e) => {
+             e.currentTarget.style.transform = 'translate(0, 0)';
+             e.currentTarget.style.boxShadow = '0 0 0 rgba(118, 126, 173, 0)';
+           }}>
         <img 
           src={project.image} 
           alt={project.title}
-          className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
+          className="w-full h-full object-cover"
         />
       </div>
       

@@ -32,21 +32,22 @@ export const Card: React.FC<CardProps> = ({
         className={`
           bg-transparent group cursor-pointer transition-all duration-300 
           hover:-translate-y-1 hover:shadow-[14px_14px_40px_#767ead1f] 
+          rounded-[24px] overflow-hidden
           ${className}
         `}
         onClick={onClick}
       >
-        {/* Image */}
-        <div className="h-[300px] overflow-hidden border border-[#E5E5E5] mb-4 rounded-[24px]">
+        {/* Image with rounded corners */}
+        <div className="h-[174px] mb-4 overflow-hidden rounded-[24px]">
           <img 
             src={image} 
             alt={alt || title}
-            className="w-full h-full object-cover rounded-[24px]"
+            className="w-full h-full object-cover"
           />
         </div>
         
-        {/* Content */}
-        <div>
+        {/* Content with padding */}
+        <div className="px-4 pb-4">
           {/* Title */}
           <h3 className="text-[20px] font-semibold font-nunito text-[#050505] mb-3 group-hover:underline">
             {title}
