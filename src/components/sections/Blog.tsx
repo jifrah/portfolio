@@ -38,6 +38,7 @@ export const Blog: React.FC = () => {
           Blog
         </h2>
         
+        {/* Grid: 1 column on mobile, 3 columns on desktop */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {posts.map((post) => (
             <Card

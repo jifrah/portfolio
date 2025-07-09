@@ -13,12 +13,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
       className="bg-transparent cursor-pointer group"
       onClick={onClick}
     >
-      {/* Image */}
-      <div className="aspect-square overflow-hidden rounded-2xl mb-4">
+      {/* Image with fixed height 174px, no corner radius, and border */}
+      <div className="h-[174px] overflow-hidden border border-[#E5E5E5] mb-4">
         <img 
           src={project.image} 
           alt={project.title}
-          className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
+          className="w-full h-full object-cover transition-all duration-300"
         />
       </div>
       
