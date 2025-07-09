@@ -49,15 +49,7 @@ export const About: React.FC = () => {
             <div className="w-full lg:w-1/2 self-center">
               <Accordion items={accordionItems} />
               
-              {/* More About Me Button */}
-              <div className="mt-8 flex justify-center">
-                <Button 
-                  variant="secondary" 
-                  onClick={handleMoreAboutMeClick}
-                >
-                  More About Me
-                </Button>
-              </div>
+              
             </div>
           </div>
         </div>
