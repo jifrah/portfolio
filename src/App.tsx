@@ -5,9 +5,6 @@ import {
   Hero, 
   About, 
   Projects, 
-  Career, 
-  Certifications, 
-  TechStack, 
   Blog, 
   Contact 
 } from './components/sections';
@@ -65,22 +62,13 @@ const App: React.FC = () => {
         {/* About Section - Secondary Background */}
         <About />
         
-        {/* Projects Section - Primary Background */}
+        {/* My Work Section - Primary Background */}
         <Projects />
         
-        {/* Career Timeline Section - Secondary Background */}
-        <Career />
-        
-        {/* Certifications Section - Primary Background */}
-        <Certifications />
-        
-        {/* Tech Stack Section - Secondary Background */}
-        <TechStack />
-        
-        {/* Blog Section - Primary Background */}
+        {/* Articles Section - Secondary Background */}
         <Blog />
         
-        {/* Contact Section - Secondary Background */}
+        {/* Let's Connect Section - Primary Background */}
         <Contact />
       </main>
       
@@ -91,7 +79,7 @@ const App: React.FC = () => {
       <Modal
         isOpen={isContactModalOpen}
         onClose={handleContactModalClose}
-        title="Get In Touch"
+        title="Let's Connect"
       >
         <ContactForm />
       </Modal>

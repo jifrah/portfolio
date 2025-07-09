@@ -37,7 +37,7 @@ export const Projects: React.FC = () => {
 
   if (loading) {
     return (
-      <Section id="projects">
+      <Section id="my-work">
         <Container>
           <div className="text-center">Loading projects...</div>
         </Container>
@@ -47,7 +47,7 @@ export const Projects: React.FC = () => {
 
   if (error) {
     return (
-      <Section id="projects">
+      <Section id="my-work">
         <Container>
           <div className="text-center text-red-600">Error loading projects</div>
         </Container>
@@ -56,7 +56,7 @@ export const Projects: React.FC = () => {
   }
 
   return (
-    <Section id="projects">
+    <Section id="my-work">
       <Container>
         <h2 className="text-[28px] md:text-[48px] font-nunito font-semibold text-left mb-12">
           My Work

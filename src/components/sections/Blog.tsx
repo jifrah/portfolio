@@ -13,7 +13,7 @@ export const Blog: React.FC = () => {
 
   if (loading) {
     return (
-      <Section id="blog">
+      <Section id="articles">
         <Container>
           <div className="text-center">Loading blog posts...</div>
         </Container>
@@ -23,7 +23,7 @@ export const Blog: React.FC = () => {
 
   if (error) {
     return (
-      <Section id="blog">
+      <Section id="articles">
         <Container>
           <div className="text-center text-red-600">Error loading blog posts</div>
         </Container>
@@ -32,7 +32,7 @@ export const Blog: React.FC = () => {
   }
 
   return (
-    <Section id="blog">
+    <Section id="articles">
       <Container>
         <h2 className="text-[28px] md:text-[48px] font-nunito font-semibold text-left mb-12">
           Blog

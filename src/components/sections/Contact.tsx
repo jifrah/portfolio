@@ -1,97 +1,73 @@
-import React, { useState } from 'react';
-import { Section, Container, Input, TextArea, Button } from '../ui';
-import { useEmailJS } from '../../hooks/useEmailJS';
+import React from 'react';
+import { Section, Container, Button } from '../ui';
+import { Linkedin, Mail } from 'lucide-react';
 
-export const Contact: React.FC = () => {
-  const { send, sending, error, success } = useEmailJS();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
+interface ContactProps {
+  onContactClick?: () => void;
+}
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    await send(formData);
-    if (success) {
-      setFormData({ name: '', email: '', subject: '', message: '' });
+export const Contact: React.FC<ContactProps> = ({ onContactClick }) => {
+  const handleLinkedInClick = () => {
+    // Replace with your actual LinkedIn URL
+    window.open('https://linkedin.com/in/your-profile', '_blank');
+  };
+
+  const handleEmailClick = () => {
+    // Replace with your actual email
+    window.location.href = 'mailto:your.email@example.com';
+  };
+
+  // If onContactClick is not provided, try to get it from the parent context
+  const handleContactButtonClick = () => {
+    if (onContactClick) {
+      onContactClick();
+    } else {
+      // Fallback: dispatch a custom event that App.tsx can listen to
+      window.dispatchEvent(new CustomEvent('openContactModal'));
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
-
   return (
-    <Section id="contact" variant="lighter">
-      <Container maxWidth="sm">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-playfair">
-          Contact
+    <Section id="lets-connect" variant="lighter">
+      <Container maxWidth="md">
+        <h2 className="text-[28px] md:text-[48px] font-nunito font-semibold text-center mb-8">
+          Let's Connect
         </h2>
         
-        {success && (
-          <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-xl text-center">
-            Message sent successfully! I'll get back to you soon.
-          </div>
-        )}
-        
-        {error && (
-          <div className="mb-6 p-4 bg-red-100 text-red-700 rounded-xl text-center">
-            {error.message}
-          </div>
-        )}
-        
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <Input
-            label="Name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Your name"
-            required
-          />
-          
-          <Input
-            label="Email"
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="your.email@example.com"
-            required
-          />
-          
-          <Input
-            label="Subject"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            placeholder="Project inquiry"
-            required
-          />
-          
-          <TextArea
-            label="Message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            placeholder="Tell me about your project..."
-            rows={6}
-            required
-          />
-          
-          <Button 
-            type="submit" 
-            className="w-full"
-            disabled={sending}
+        {/* Social Icons */}
+        <div className="flex justify-center gap-6 mb-8">
+          <button
+            onClick={handleLinkedInClick}
+            className="p-3 rounded-full hover:bg-[#F5F5F7] transition-colors"
+            aria-label="LinkedIn"
           >
-            {sending ? 'Sending...' : 'Send Message'}
+            <Linkedin className="w-6 h-6 text-[#050505]" />
+          </button>
+          <button
+            onClick={handleEmailClick}
+            className="p-3 rounded-full hover:bg-[#F5F5F7] transition-colors"
+            aria-label="Email"
+          >
+            <Mail className="w-6 h-6 text-[#050505]" />
+          </button>
+        </div>
+        
+        {/* Description Text */}
+        <p className="text-[16px] md:text-[18px] font-nunito text-[#1D1D1F] text-center mb-10 leading-relaxed max-w-2xl mx-auto">
+          Please don't hesitate to reach out if you would like to chat about work or side project opportunities, 
+          share your feedback and input, or just connect. I am always open to new conversations and will do my 
+          best to respond to you in a timely manner. Cheers!
+        </p>
+        
+        {/* Contact Button */}
+        <div className="flex justify-center">
+          <Button 
+            variant="primary"
+            onClick={handleContactButtonClick}
+          >
+            Contact Me
           </Button>
-        </form>
+        </div>
       </Container>
     </Section>
   );

@@ -1,10 +1,7 @@
 export const NAVIGATION_ITEMS = [
   'About',
-  'Projects',
-  'Career',
-  'Certifications',
-  'Tech Stack',
-  'Blog'
+  'My Work',
+  'Articles'
 ] as const;
 
 export const COLORS = {
