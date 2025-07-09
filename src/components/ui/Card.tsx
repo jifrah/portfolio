@@ -28,13 +28,20 @@ export const Card: React.FC<CardProps> = ({
   // If we have image, title, etc. props, render the new ProjectCard-style design
   if (image && title) {
     return (
-      <div className={`bg-transparent group cursor-pointer ${className}`} onClick={onClick}>
+      <div 
+        className={`
+          bg-transparent group cursor-pointer transition-all duration-300 
+          hover:-translate-y-1 hover:shadow-[14px_14px_40px_#767ead1f] 
+          ${className}
+        `}
+        onClick={onClick}
+      >
         {/* Image */}
-        <div className="h-[174px] overflow-hidden border border-[#E5E5E5] mb-4">
+        <div className="h-[300px] overflow-hidden border border-[#E5E5E5] mb-4 rounded-[24px]">
           <img 
             src={image} 
             alt={alt || title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover rounded-[24px]"
           />
         </div>
         
