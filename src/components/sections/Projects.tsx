@@ -1,4 +1,3 @@
-// src/components/sections/Projects.tsx
 import React, { useState } from 'react';
 import { Section, Container } from '../ui';
 import { ProjectCard } from '../projects/ProjectCard';
@@ -25,14 +24,7 @@ export const Projects: React.FC = () => {
 
   // Handle project card click - navigate to project detail page
   const handleProjectClick = (project: Project) => {
-    // Option 1: Navigate to project detail page using URL slug/ID
     window.location.href = `/project/${project.id}`;
-    
-    // Option 2: If you want to use React Router (requires installation)
-    // navigate(`/project/${project.id}`);
-    
-    // Option 3: Open project in new tab
-    // window.open(`/project/${project.id}`, '_blank');
   };
 
   if (loading) {
@@ -106,6 +98,7 @@ export const Projects: React.FC = () => {
           </div>
         )}
 
+        {/* Load More Button */}
         <LoadMore 
           hasMore={hasMoreProjects}
           onLoadMore={handleLoadMore}

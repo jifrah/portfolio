@@ -1,3 +1,32 @@
+// ============================================================================
+// CONTACTFORM.TSX ISSUES ANALYSIS
+// ============================================================================
+
+/* 
+🚨 PROBLEMS IDENTIFIED:
+
+1. DUPLICATE LABELS:
+   - Input components expect a "label" prop but it's being set to empty string ""
+   - Manual labels are created OUTSIDE the Input component
+   - This creates duplicate label elements for the same input
+
+2. ACCESSIBILITY ISSUES:
+   - Manual labels use htmlFor but point to IDs
+   - Input components create their own labels internally
+   - This breaks screen reader functionality
+
+3. INCONSISTENT PATTERN:
+   - Using both manual labels AND Input component labels
+   - Empty label props being passed to Input/TextArea components
+
+4. REDUNDANT CODE:
+   - Double labeling system creates unnecessary complexity
+*/
+
+// ============================================================================
+// CLEANED VERSION - FIXED CONFLICTS
+// ============================================================================
+
 // src/components/ContactForm.tsx
 import React, { useState } from 'react';
 import { Input, TextArea, Button } from './ui';
@@ -51,70 +80,46 @@ export const ContactForm: React.FC = () => {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Name Fields */}
         <div>
-          <label className="block text-sm font-semibold text-[#050505] mb-2 font-nunito">
+          <div className="block text-sm font-semibold text-[#050505] mb-4 font-nunito">
             Your Name <span className="text-[#515154] font-extralight">(required)</span>
-          </label>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label htmlFor="firstName" className="block text-xs text-[#515154] mb-1 font-nunito">
-                First Name
-              </label>
-              <Input
-                id="firstName"
-                name="firstName"
-                label=""
-                value={formData.firstName}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="lastName" className="block text-xs text-[#515154] mb-1 font-nunito">
-                Last Name
-              </label>
-              <Input
-                id="lastName"
-                name="lastName"
-                label=""
-                value={formData.lastName}
-                onChange={handleChange}
-                required
-              />
-            </div>
+            <Input
+              name="firstName"
+              label="First Name"
+              value={formData.firstName}
+              onChange={handleChange}
+              required
+            />
+            <Input
+              name="lastName"
+              label="Last Name"
+              value={formData.lastName}
+              onChange={handleChange}
+              required
+            />
           </div>
         </div>
         
         {/* Email Field */}
-        <div>
-          <label htmlFor="email" className="block text-sm font-semibold text-[#050505] mb-2 font-nunito">
-            Your Email <span className="text-[#515154] font-extralight">(required)</span>
-          </label>
-          <Input
-            id="email"
-            name="email"
-            label=""
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <Input
+          name="email"
+          label="Your Email (required)"
+          type="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
         
         {/* Message Field */}
-        <div>
-          <label htmlFor="message" className="block text-sm font-semibold text-[#050505] mb-2 font-nunito">
-            Your Message <span className="text-[#515154] font-extralight">(required)</span>
-          </label>
-          <TextArea
-            id="message"
-            name="message"
-            label=""
-            value={formData.message}
-            onChange={handleChange}
-            rows={6}
-            required
-          />
-        </div>
+        <TextArea
+          name="message"
+          label="Your Message (required)"
+          value={formData.message}
+          onChange={handleChange}
+          rows={6}
+          required
+        />
         
         <Button 
           type="submit" 

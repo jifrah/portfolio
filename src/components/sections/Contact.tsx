@@ -1,4 +1,3 @@
-// src/components/sections/Contact.tsx
 import React from 'react';
 import { Section, Container, Button } from '../ui';
 import { Linkedin, Github } from 'lucide-react';
@@ -16,7 +15,6 @@ export const Contact: React.FC<ContactProps> = ({ onContactClick }) => {
     window.open('https://github.com/jifrah', '_blank');
   };
 
-  // If onContactClick is not provided, try to get it from the parent context
   const handleContactButtonClick = () => {
     if (onContactClick) {
       onContactClick();

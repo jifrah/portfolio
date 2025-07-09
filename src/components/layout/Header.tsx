@@ -29,7 +29,8 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, isMenuOpen }) => {
       } ${isMenuOpen ? 'z-[60]' : 'z-50'}`}
     >
       <div className="px-6 md:px-12">
-        <div className="flex items-center justify-between h-12 md:h-11">
+        <div className="flex items-center h-12 md:h-11">
+          {/* Logo - Left Side */}
           <button
             onClick={() => scrollToSection('hero')}
             className="text-[#CCCCCC] text-lg md:text-xl hover:text-[#F5F5F7] transition-colors font-nunito"
@@ -37,8 +38,8 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, isMenuOpen }) => {
             JI
           </button>
           
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* Centered Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8 flex-1 justify-center">
             {NAVIGATION_ITEMS.map((item) => (
               <button
                 key={item}
@@ -50,13 +51,16 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, isMenuOpen }) => {
             ))}
           </nav>
           
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          {/* Mobile Menu Button - Right Side */}
+          <div className="md:hidden ml-auto">
             <BurgerButton 
               isOpen={isMenuOpen} 
               onClick={onMenuClick} 
             />
           </div>
+          
+          {/* Spacer for Desktop - Balances the logo on the left */}
+          <div className="hidden md:block w-[2.5rem]"></div>
         </div>
       </div>
     </header>

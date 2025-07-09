@@ -1,6 +1,6 @@
 // src/components/sections/About.tsx
 import React from 'react';
-import { Section, Container, Accordion, Button } from '../ui';
+import { Section, Container, Accordion } from '../ui';
 
 const accordionItems = [
   {
@@ -18,11 +18,6 @@ const accordionItems = [
 ];
 
 export const About: React.FC = () => {
-  const handleMoreAboutMeClick = () => {
-    // Placeholder for future link functionality
-    console.log('More About Me clicked - link to be added');
-  };
-
   return (
     <Section id="about" variant="lighter">
       <Container>
@@ -38,18 +33,16 @@ export const About: React.FC = () => {
             <div className="w-full lg:w-1/2 flex justify-center">
               <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-[#F5F5F7]">
                 <img 
-                  src="/images/photo_Jeremy_About.png" 
+                  src="/images/pictures/jeremy-ifrah-portrait-1200w.webp" 
                   alt="Jérémy Ifrah - About"
                   className="w-full h-full object-cover"
                 />
               </div>
             </div>
             
-            {/* Accordion and Button - below image on mobile, right side on desktop */}
+            {/* Accordion - below image on mobile, right side on desktop */}
             <div className="w-full lg:w-1/2 self-center">
               <Accordion items={accordionItems} />
-              
-              
             </div>
           </div>
         </div>

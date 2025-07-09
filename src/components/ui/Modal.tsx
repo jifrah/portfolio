@@ -34,7 +34,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, title }
       >
         {title && (
           <div className="flex justify-between items-center p-6 border-b border-[#E5E5E5]">
-            <h3 className="text-2xl font-bold font-playfair">{title}</h3>
+            <h3 className="text-2xl font-bold font-nunito">{title}</h3>
             <button
               onClick={onClose}
               className="p-2 hover:bg-[#F5F5F7] rounded-lg transition-colors"
