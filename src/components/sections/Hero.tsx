@@ -28,40 +28,19 @@ export const Hero: React.FC = () => {
             className="relative mx-auto overflow-hidden rounded-[40px] bg-[#F5F5F7] flex justify-center items-center"
             style={{
               width: '87.5%',
-              height: '80vh',
-              minHeight: '680px',
+              height: '60vh',
+              minHeight: '300px',
               maxHeight: '1260px'
             }}
           >
-            <picture className="w-full h-full">
-              {/* Mobile images - portrait orientation */}
-              <source 
-                media="(max-width: 734px)" 
-                srcSet={`
-                  /images/jeremy-ifrah-portrait-mobile-550w.webp 550w,
-                  /images/jeremy-ifrah-portrait-mobile-1100w.webp 1100w
-                `}
-                sizes="87.5vw"
-              />
-              {/* Desktop images - landscape orientation */}
-              <source 
-                media="(min-width: 735px)" 
-                srcSet={`
-                  /images/jeremy-ifrah-portrait-desktop-1200w.webp 1200w,
-                  /images/jeremy-ifrah-portrait-desktop-1600w.webp 1600w,
-                  /images/jeremy-ifrah-portrait-desktop-2400w.webp 2400w
-                `}
-                sizes="87.5vw"
-              />
-              {/* Fallback image */}
-              <img
-                src="/images/jeremy-ifrah-portrait-desktop-1600w.webp"
-                alt="Jérémy Ifrah"
-                className="w-full h-full object-cover object-center"
-                loading="eager"
-                decoding="async"
-              />
-            </picture>
+            {/* Updated to use the specific photo requested */}
+            <img
+              src="/images/pictures/photo_Jeremy_About.png"
+              alt="Jérémy Ifrah"
+              className="w-full h-full object-cover object-center"
+              loading="eager"
+              decoding="async"
+            />
           </div>
         </div>
       </div>

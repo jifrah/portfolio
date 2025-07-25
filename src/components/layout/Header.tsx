@@ -35,7 +35,7 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, isMenuOpen }) => {
             onClick={() => scrollToSection('hero')}
             className="text-[#CCCCCC] text-lg md:text-xl hover:text-[#F5F5F7] transition-colors font-nunito"
           >
-            JI
+            JEREMY IFRAH
           </button>
           
           {/* Centered Desktop Navigation */}
@@ -44,7 +44,7 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, isMenuOpen }) => {
               <button
                 key={item}
                 onClick={() => handleNavClick(item)}
-                className="text-[#CCCCCC] hover:text-[#FCFCF9] hover:underline transition-all font-medium font-nunito"
+                className="text-[#CCCCCC] hover:text-[#FCFCF9] hover:underline transition-all font-medium font-nunito uppercase"
               >
                 {item}
               </button>
