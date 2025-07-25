@@ -33,7 +33,7 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, isMenuOpen }) => {
           {/* Logo - Left Side */}
           <button
             onClick={() => scrollToSection('hero')}
-            className="text-[#CCCCCC] text-lg md:text-xl hover:text-[#F5F5F7] transition-colors font-nunito"
+            className="text-[#CCCCCC] text-2xl md:text-2xl hover:text-[#F5F5F7] transition-colors font-nunito"
           >
             JEREMY IFRAH
           </button>
