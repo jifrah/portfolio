@@ -2,9 +2,7 @@
 import React, { useState, useCallback } from 'react';
 import { Header, MobileMenu, Footer } from './components/layout';
 import { 
-  Hero, 
-  About, 
-  Projects, 
+  Hero, ExecutionSection, Projects, 
   Blog, 
   Contact 
 } from './components/sections';
@@ -59,7 +57,7 @@ const App: React.FC = () => {
         <Hero />
         
         {/* About Section - Secondary Background */}
-        <About />
+        <ExecutionSection />
         
         {/* My Work Section - Primary Background */}
         <Projects />

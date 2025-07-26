@@ -1,5 +1,5 @@
 export { Hero } from './Hero';
-export { About } from './About';
+export { ExecutionSection } from './ExecutionSection';
 export { Projects } from './Projects';
 export { Blog } from './Blog';
 export { Contact } from './Contact';
