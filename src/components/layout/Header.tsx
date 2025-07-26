@@ -30,16 +30,24 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, isMenuOpen }) => {
     >
       <div className="px-6 md:px-12">
         <div className="flex items-center h-12 md:h-11">
-          {/* Logo - Left Side */}
-          <button
-            onClick={() => scrollToSection('hero')}
-            className="text-[#CCCCCC] text-2xl md:text-2xl hover:text-[#F5F5F7] transition-colors font-nunito"
-          >
-            JEREMY IFRAH
-          </button>
+          {/* Logo Section - Left Side */}
+          <div className="flex items-center space-x-3">
+            {/* JI Logo Circle */}
+            <div className="w-8 h-8 bg-[#FCFCF9] rounded-full flex items-center justify-center">
+              <span className="text-[#050505] text-sm font-nunito font-bold">JI</span>
+            </div>
+            
+            {/* Text Logo */}
+            <button
+              onClick={() => scrollToSection('hero')}
+              className="text-[#CCCCCC] text-lg md:text-xl hover:text-[#F5F5F7] transition-colors font-nunito"
+            >
+              JEREMY IFRAH
+            </button>
+          </div>
           
-          {/* Centered Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8 flex-1 justify-center">
+          {/* Right-Aligned Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8 ml-auto">
             {NAVIGATION_ITEMS.map((item) => (
               <button
                 key={item}
@@ -58,9 +66,6 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick, isMenuOpen }) => {
               onClick={onMenuClick} 
             />
           </div>
-          
-          {/* Spacer for Desktop - Balances the logo on the left */}
-          <div className="hidden md:block w-[2.5rem]"></div>
         </div>
       </div>
     </header>

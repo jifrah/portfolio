@@ -31,10 +31,18 @@ export const Hero: React.FC = () => {
           <div className="flex-1 max-w-3xl flex flex-col justify-center h-[60vh] lg:h-[80vh] gap-8 lg:gap-12">
             <div className="flex-shrink-0">
               <h1 className="text-[48px] md:text-[64px] lg:text-9xl font-nunito font-bold text-[#050505] leading-[0.8]">
-                <span className="block">Make</span>
-                <span className="block"><em className="font-black italic text-[#050505]">Every</em></span>
-                <span className="block">Release</span>
-                <span className="block">Count</span>
+                {/* Mobile/Tablet: Compact layout */}
+                <span className="lg:hidden">
+                  Make <em className="font-black italic text-[#050505]">Every</em><br />
+                  Release Count
+                </span>
+                {/* Desktop: One word per line */}
+                <span className="hidden lg:block">
+                  <span className="block">Make</span>
+                  <span className="block"><em className="font-black italic text-[#050505]">Every</em></span>
+                  <span className="block">Release</span>
+                  <span className="block">Count</span>
+                </span>
               </h1>
             </div>
             
