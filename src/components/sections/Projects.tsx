@@ -45,18 +45,16 @@ export const Projects: React.FC = () => {
 
   return (
     <Section id="latest-work">
-      <Container>
-        {/* Title styled like the old h3 with decorative lines */}
-        <div className="flex items-center mb-12">
-          <div className="flex-1 h-[1px] bg-[#050505] opacity-70"></div>
-          <h2 className="text-[22px] md:text-[32px] font-nunito font-semibold text-center px-6">
+      <Container className="max-w-none">
+        {/* Title left-aligned without decorative lines */}
+        <div className="mb-12">
+          <h2 className="text-[22px] md:text-[32px] font-nunito font-semibold text-left">
             Latest Work
           </h2>
-          <div className="flex-1 h-[1px] bg-[#050505] opacity-70"></div>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {displayedProjects.map((project) => (
             <ProjectCard
               key={project.id}

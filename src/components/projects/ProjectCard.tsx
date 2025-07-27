@@ -14,7 +14,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
       onClick={onClick}
     >
       {/* Image with specific shadow/translate effect */}
-      <div className="aspect-square overflow-hidden rounded-2xl mb-4 transition-all duration-300 ease-out group-hover:-translate-y-1" 
+      <div className="aspect-[2/1] overflow-hidden rounded-2xl mb-4 transition-all duration-300 ease-out group-hover:-translate-y-1" 
            style={{ 
              boxShadow: '0 0 0 rgba(118, 126, 173, 0)', 
              transition: 'transform 300ms ease-out, box-shadow 300ms ease-out' 

@@ -2,9 +2,9 @@ import React from 'react';
 
 export const Hero: React.FC = () => {
   return (
-    <section id="hero" className="min-h-screen bg-[#FCFCF9] py-[90px] px-[90px] md:py-[120px] md:px-[120px] flex items-center">
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 h-full">
+    <section id="hero" className="min-h-screen bg-[#FCFCF9] flex items-center py-[20px] px-[20px] md:py-[70px] md:px-[40px] lg:px-[90px] xl:px-[120px]">
+      <div className="max-w-none mx-auto w-full">
+        <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-6 h-full">
           {/* Image - left side with enhanced shadows and smooth integration */}
           <div className="flex-1 flex justify-center lg:justify-start">
             <div className="relative w-full max-w-md lg:max-w-lg h-[60vh] lg:h-[80vh] overflow-hidden rounded-3xl shadow-2xl">
