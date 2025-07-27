@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Hero: React.FC = () => {
   return (
-    <section id="hero" className="min-h-screen bg-[#FCFCF9] flex items-center py-[20px] px-[20px] md:py-[70px] md:px-[40px] lg:px-[90px] xl:px-[120px]">
+    <section id="hero" className="min-h-screen bg-[#FCFCF9] flex items-center py-[20px] px-[20px] md:py-[70px] md:px-[40px] lg:px-[70px] 2xl:px-[200px]">
       <div className="max-w-none mx-auto w-full">
         <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-6 h-full">
           {/* Image - left side with enhanced shadows and smooth integration */}
