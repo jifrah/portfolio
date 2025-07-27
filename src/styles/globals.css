@@ -189,3 +189,7 @@ textarea:focus {
     text-decoration: underline;
   }
 }
+
+.staggered-2-col > *:nth-child(even) {
+  margin-top: 3rem;
+}

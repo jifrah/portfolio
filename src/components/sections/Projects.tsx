@@ -44,17 +44,15 @@ export const Projects: React.FC = () => {
   }
 
   return (
-    <Section id="latest-work">
+    <Section id="latest-work" variant="light">
       <Container className="max-w-none">
-        {/* Title left-aligned without decorative lines */}
         <div className="mb-12">
-          <h2 className="text-[22px] md:text-[32px] font-nunito font-semibold text-left">
+          <h2 className="text-[30px] md:text-[36px] font-nunito font-semibold text-left">
             Latest Work
           </h2>
-        </div>
-
+        </div>     
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 staggered-2-col">
           {displayedProjects.map((project) => (
             <ProjectCard
               key={project.id}
