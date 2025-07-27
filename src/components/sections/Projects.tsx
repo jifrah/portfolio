@@ -9,14 +9,10 @@ export const Projects: React.FC = () => {
   const [visibleCount, setVisibleCount] = useState(6);
   const { projects, loading, error } = useProjects();
 
-  // Split projects by category
+  // Only get product projects (featured work)
   const productProjects = projects.filter(p => p.category === 'product');
-  const dataScienceProjects = projects.filter(p => p.category === 'dataScience');
-  
-  const displayedProductProjects = productProjects.slice(0, visibleCount);
-  const displayedDataScienceProjects = dataScienceProjects.slice(0, visibleCount);
-  
-  const hasMoreProjects = (productProjects.length + dataScienceProjects.length) > visibleCount;
+  const displayedProjects = productProjects.slice(0, visibleCount);
+  const hasMoreProjects = productProjects.length > visibleCount;
 
   const handleLoadMore = () => {
     setVisibleCount(prev => prev + 4);
@@ -29,7 +25,7 @@ export const Projects: React.FC = () => {
 
   if (loading) {
     return (
-      <Section id="my-work">
+      <Section id="latest-work">
         <Container>
           <div className="text-center">Loading projects...</div>
         </Container>
@@ -39,7 +35,7 @@ export const Projects: React.FC = () => {
 
   if (error) {
     return (
-      <Section id="my-work">
+      <Section id="latest-work">
         <Container>
           <div className="text-center text-red-600">Error loading projects</div>
         </Container>
@@ -48,61 +44,37 @@ export const Projects: React.FC = () => {
   }
 
   return (
-    <Section id="my-work">
+    <Section id="latest-work">
       <Container>
-        <h2 className="text-[28px] md:text-[48px] font-nunito font-semibold text-left mb-12">
-          My Work
-        </h2>
-        
-        {/* Featured Work Section */}
-        {productProjects.length > 0 && (
-          <div className="mb-16">
-            <div className="flex items-center mb-8">
-              <div className="flex-1 h-[1px] bg-[#050505] opacity-70"></div>
-              <h3 className="text-[22px] md:text-[32px] font-nunito font-semibold text-center px-6">
-                Featured Work
-              </h3>
-              <div className="flex-1 h-[1px] bg-[#050505] opacity-70"></div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {displayedProductProjects.map((project) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  onClick={() => handleProjectClick(project)}
-                />
-              ))}
-            </div>
-          </div>
-        )}
+        {/* Title styled like the old h3 with decorative lines */}
+        <div className="flex items-center mb-12">
+          <div className="flex-1 h-[1px] bg-[#050505] opacity-70"></div>
+          <h2 className="text-[22px] md:text-[32px] font-nunito font-semibold text-center px-6">
+            Latest Work
+          </h2>
+          <div className="flex-1 h-[1px] bg-[#050505] opacity-70"></div>
+        </div>
 
-        {/* Data Science Section */}
-        {dataScienceProjects.length > 0 && (
-          <div className="mb-16">
-            <div className="flex items-center mb-8">
-              <div className="flex-1 h-[1px] bg-[#050505] opacity-70"></div>
-              <h3 className="text-[22px] md:text-[32px] font-nunito font-semibold text-center px-6">
-                Data Science
-              </h3>
-              <div className="flex-1 h-[1px] bg-[#050505] opacity-70"></div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {displayedDataScienceProjects.map((project) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  onClick={() => handleProjectClick(project)}
-                />
-              ))}
-            </div>
-          </div>
-        )}
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {displayedProjects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              onClick={() => handleProjectClick(project)}
+            />
+          ))}
+        </div>
 
         {/* Load More Button */}
-        <LoadMore 
-          hasMore={hasMoreProjects}
-          onLoadMore={handleLoadMore}
-        />
+        {hasMoreProjects && (
+          <div className="mt-12">
+            <LoadMore 
+              hasMore={hasMoreProjects}
+              onLoadMore={handleLoadMore}
+            />
+          </div>
+        )}
       </Container>
     </Section>
   );
