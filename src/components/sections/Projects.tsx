@@ -44,7 +44,7 @@ export const Projects: React.FC = () => {
   }
 
   return (
-    <Section id="latest-work" variant="light">
+    <Section id="latest-work" variant="lighter">
       <Container className="max-w-none">
         <div className="mb-12">
           <h2 className="text-[30px] md:text-[36px] font-nunito font-semibold text-left">
