@@ -10,6 +10,7 @@ import {
 } from './components/sections';
 import { Modal } from './components/ui';
 import { ContactForm } from './components/ContactForm';
+// Fixed import: Changed from RIU to Riu to match the actual export
 import { Adie, Riu } from './components/pages';
 
 // Main Portfolio Page Component
@@ -79,6 +80,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<PortfolioPage />} />
         <Route path="/projects/adie" element={<Adie />} />
+        {/* Fixed usage: Changed from RIU to Riu */}
         <Route path="/projects/riu" element={<Riu />} />
       </Routes>
     </Router>

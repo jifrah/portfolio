@@ -1,72 +1,78 @@
 import React from 'react';
 import { Button } from '../ui/Button';
+import { useSmoothScroll } from '../../hooks/useSmoothScroll';
 
 export const Hero: React.FC = () => {
+  const scrollToSection = useSmoothScroll();
+  
+  const handleGetInTouchClick = () => {
+    scrollToSection('lets-connect');
+  };
+
   return (
-    <section id="hero" className="min-h-screen bg-[#FCFCF9] flex items-center py-[70px] px-[20px] md:py-[70px] md:px-[40px] lg:px-[70px] 2xl:px-[200px]">
-      <div className="max-w-none mx-auto w-full">
-        <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-6 h-full">
-          {/* Text content - left side */}
-          <div className="flex-1 max-w-3xl flex flex-col justify-center h-[60vh] lg:h-[80vh] gap-6 lg:gap-8 order-2 lg:order-1">
-            <div className="flex-shrink-0">
-              <h1 className="text-[48px] md:text-[64px] lg:text-7xl font-nunito font-bold text-[#050505] leading-[0.9] mb-4">
-                Delivering impact —<br className="hidden sm:block" />
-                <span className="text-[#666666]">not just features.</span>
-              </h1>
-              
-              <p className="text-[18px] md:text-[22px] lg:text-[24px] font-nunito font-light text-[#1D1D1F] italic mb-6">
-                Product Manager • AI Transformation • Startup Co-founder
-              </p>
-            </div>
+    <section 
+      id="hero" 
+      className="min-h-screen bg-[#FCFCF9] flex items-center relative"
+    >
+      {/* Container with responsive padding */}
+      <div className="w-full px-[20px] md:px-[40px] lg:px-[70px] 2xl:px-[200px] py-[70px] md:py-[90px]">
+        {/* Add extra top padding to account for fixed header */}
+        <div className="pt-[48px] md:pt-[44px]">
+          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
             
-            <div className="flex-shrink-0 max-w-2xl">
-              <div className="text-[16px] md:text-[18px] lg:text-[20px] font-nunito text-[#050505] leading-relaxed space-y-4">
-                <p>
-                  Currently <strong className="font-semibold">leading AI transformation at Adie</strong> —  to make business loans as accessible as ordering coffee. <strong className="font-semibold">Ex-startup founder</strong> who learned that great tech means nothing without user love. <strong className="font-semibold">Teaching ML at Code.org</strong> because talent is universal, opportunity isn't. With my <strong className="font-semibold">MSc in Big Data</strong>, <strong className="font-semibold">International MBA</strong>, and certifications in <strong className="font-semibold">UX/UI Design, Business Development, DevOps and more</strong>, I'm always pushing to level up my game.
-                </p>
+            {/* Text content - left side */}
+            <div className="flex-1 w-full lg:max-w-3xl">
+              {/* Title Section */}
+              <div className="mb-6 lg:mb-8">
+                <h1 className="text-[40px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] font-nunito font-bold text-[#050505] leading-[0.9] mb-4">
+                  Delivering impact —<br className="hidden sm:block" />
+                  <span className="text-[#666666]">not just features.</span>
+                </h1>
                 
+                <p className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] font-nunito font-light text-[#1D1D1F] italic">
+                  Product Manager • AI Transformation • Startup Co-founder
+                </p>
+              </div>
               
+              {/* Description Section */}
+              <div className="mb-8 lg:mb-10">
+                <div className="text-[14px] sm:text-[16px] md:text-[17px] lg:text-[18px] xl:text-[20px] font-nunito text-[#050505] leading-relaxed space-y-4">
+                  <p>
+                    Currently <strong className="font-semibold">leading AI transformation at Adie</strong> — to make business loans as accessible as ordering coffee. <strong className="font-semibold">Ex-startup founder</strong> who learned that great tech means nothing without user love. <strong className="font-semibold">Teaching ML at Code.org</strong> because talent is universal, opportunity isn't. With my <strong className="font-semibold">MSc in Big Data</strong>, <strong className="font-semibold">International MBA</strong>, and certifications in <strong className="font-semibold">UX/UI Design, Business Development, DevOps and more</strong>, I'm always pushing to level up my game.
+                  </p>
+                  <p>
+                    I thrive on building products that deliver real impact — blending strategic thinking with hands-on execution to ship solutions that scale. <strong className="font-semibold">From product to code to growth</strong> — I do what it takes to make things happen.
+                  </p>
+                </div>
               </div>
               
               {/* CTA Button */}
-              <div className="mt-8 flex gap-4">
+              <div className="flex">
                 <Button 
-                  variant="primary"
-                  onClick={() => {
-                    document.getElementById('latest-work')?.scrollIntoView({ 
-                      behavior: 'smooth' 
-                    });
-                  }}
-                  className="group"
+                  variant="primary" 
+                  onClick={handleGetInTouchClick}
+                  className="min-h-[44px]" // Ensure minimum touch target size
                 >
-                  See my work
-                  
+                  Get in Touch
                 </Button>
-                
               </div>
             </div>
-          </div>
-          
-          {/* Image - right side with enhanced shadows and smooth integration */}
-          <div className="flex-1 flex justify-center lg:justify-end order-1 lg:order-2">
-            <div className="relative w-full max-w-md lg:max-w-2xl h-[60vh] lg:h-[80vh] overflow-hidden rounded-3xl shadow-2xl">
-              <img 
-                src="/images/pictures/jeremy_0725_1735_vj2i0j.png" 
-                alt="Jérémy Ifrah - Product Manager"
-                className="w-full h-full object-cover object-center"
-                style={{
-                  filter: 'contrast(1.05) brightness(1.02) saturate(1.1)'
-                }}
-              />
-              
-              {/* Enhanced gradient overlays for smooth background transition - reversed for right side */}
-              <div className="absolute inset-0 bg-gradient-to-l from-[#d5d7d5] via-transparent to-[#FCFCF9] opacity-30"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#FCFCF9] via-transparent to-transparent opacity-15"></div>
-              <div className="absolute inset-0 bg-gradient-to-b from-[#FCFCF9] via-transparent to-transparent opacity-15"></div>
-              
-              {/* Subtle inner shadow for depth */}
-              <div className="absolute inset-0 shadow-inner opacity-30"></div>
+            
+            {/* Image - right side */}
+            <div className="flex-1 w-full max-w-md lg:max-w-lg order-first lg:order-last">
+              <div className="relative w-full">
+                <div className="aspect-square rounded-2xl overflow-hidden bg-[#F5F5F7] shadow-lg">
+                  <img 
+                    src="/api/placeholder/600/600"
+                    alt="Jeremy Ifrah"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {/* Optional: Add decorative elements */}
+                <div className="absolute -z-10 top-4 right-4 w-full h-full rounded-2xl bg-gradient-to-br from-[#050505]/5 to-transparent" />
+              </div>
             </div>
+            
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
-// RIU Smart Lighting Project Page
+// RIU Smart Lighting Project Page with Your Contribution
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, Clock, Users, TrendingUp, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Clock, Users, TrendingUp, ChevronRight, Star } from 'lucide-react';
 
 const Riu = () => {
   const navigate = useNavigate();
@@ -97,6 +97,15 @@ const Riu = () => {
               <span>€110K Savings | 181t CO₂ Cut</span>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-5 md:px-10 lg:px-[70px] 2xl:px-[200px] bg-[#050505] text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-[28px] md:text-[36px] font-bold mb-6">The Bottom Line</h2>
+          <p className="text-[20px] md:text-[24px] leading-relaxed mb-8 opacity-90">
+            Smart lighting proved to be the ideal wedge—delivering immediate ESG value with zero disruption. We're now scaling across RIU's global portfolio.
+          </p>
         </div>
       </section>
 
@@ -222,16 +231,97 @@ const Riu = () => {
         </div>
       </section>
 
-      <section className="py-20 px-5 md:px-10 lg:px-[70px] 2xl:px-[200px] bg-[#050505] text-white">
+      {/* Your Contribution Section */}
+      <section className="py-20 px-5 md:px-10 lg:px-[70px] 2xl:px-[200px] bg-[#F5F5F7]">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-3 mb-8">
+            <Star className="w-6 h-6 text-[#050505]" />
+            <h2 className="text-[28px] md:text-[36px] font-bold">My Contribution</h2>
+          </div>
+          
+          <div className="mb-6">
+            <p className="text-[18px] md:text-[20px] text-[#1D1D1F] font-medium mb-8">
+              As the Product/Strategy Consultant:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-2xl p-6 space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div>
+                  <p className="text-[16px] md:text-[18px] text-[#050505]">
+                    I <strong>translated stakeholder needs</strong> into a focused technical roadmap — aligning IT, sustainability, and hotel operations
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div>
+                  <p className="text-[16px] md:text-[18px] text-[#050505]">
+                    Leveraged my <strong>hospitality experience</strong> to ensure proposed changes would be guest-neutral or positive
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div>
+                  <p className="text-[16px] md:text-[18px] text-[#050505]">
+                    Collaborated with Azure's technical team to <strong>define system architecture</strong>, sensor placement, and expected outcomes
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div>
+                  <p className="text-[16px] md:text-[18px] text-[#050505]">
+                    Built the <strong>business case model</strong> used to pitch the ROI of lighting vs. other potential upgrades
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div>
+                  <p className="text-[16px] md:text-[18px] text-[#050505]">
+                    Prepared the <strong>presentation to RIU's board</strong> summarizing sustainability gains, cost savings, and scalability
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div>
+                  <p className="text-[16px] md:text-[18px] text-[#050505]">
+                    Used my relationships within RIU's C-suite to <strong>navigate internal concerns and political sensitivities</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Navigation Section */}
+      <section className="py-20 px-5 md:px-10 lg:px-[70px] 2xl:px-[200px]">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-[28px] md:text-[36px] font-bold mb-6">The Bottom Line</h2>
-          <p className="text-[20px] md:text-[24px] leading-relaxed mb-8 opacity-90">
-            Smart lighting proved to be the ideal wedge—delivering immediate ESG value with zero disruption. We’re now scaling across RIU’s global portfolio.
-          </p>
           <div className="flex flex-wrap justify-center gap-4">
             <button 
               onClick={() => navigate('/')} 
-              className="inline-flex items-center gap-2 border border-white/30 px-6 py-3 rounded-full font-medium hover:bg-white/10 transition-colors"
+              className="inline-flex items-center gap-2 border border-[#050505] px-6 py-3 rounded-full font-medium hover:bg-[#050505] hover:text-white transition-colors"
             >
               Back to Portfolio
               <ChevronRight className="w-4 h-4" />

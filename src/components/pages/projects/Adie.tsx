@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, Clock, Users, TrendingUp, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Clock, Users, TrendingUp, ChevronRight, Star } from 'lucide-react';
 
 // Adie Project Detail Page
 const Adie = () => {
@@ -115,31 +115,31 @@ const Adie = () => {
             Transforming how 65,000 entrepreneurs access loans and support through AI-powered automation and user-centered design.
           </p>
 
-          {/* Project Meta */}
+          {/* Project Details */}
           <div className="flex flex-wrap gap-6 text-[16px] text-[#1D1D1F]">
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4 opacity-60" />
-              <span>2023 - Present</span>
+              <span>12 months</span>
             </div>
             <div className="flex items-center gap-2">
               <Users className="w-4 h-4 opacity-60" />
-              <span>Team of 12</span>
+              <span>Product Manager</span>
             </div>
             <div className="flex items-center gap-2">
               <TrendingUp className="w-4 h-4 opacity-60" />
-              <span>47% Impact Increase</span>
+              <span>60% faster processing | 45% higher conversion</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Hero Image */}
+      {/* Project Image */}
       <section className="px-5 md:px-10 lg:px-[70px] 2xl:px-[200px] mb-20">
         <div className="max-w-7xl mx-auto">
           <div className="relative aspect-[16/9] rounded-3xl overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50">
             <img 
-              src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=1600&h=900&fit=crop"
-              alt="Adie Platform Overview"
+              src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1600&h=900&fit=crop"
+              alt="Adie microfinance platform"
               className="w-full h-full object-cover"
             />
           </div>
@@ -151,9 +151,7 @@ const Adie = () => {
         <div className="max-w-3xl mx-auto">
           <h2 className="text-[28px] md:text-[36px] font-bold mb-6">Context</h2>
           <p className="text-[18px] md:text-[20px] text-[#1D1D1F] leading-relaxed">
-            <strong>Adie</strong> is France's leading Microfinance Institution, empowering underserved entrepreneurs with loans and support. 
-            To meet rising demand and navigate funding volatility, an <strong>innovation unit</strong> was created to digitize processes 
-            and scale impact faster, cheaper, and more fairly.
+            Adie is France's largest microfinance organization, supporting women entrepreneurs and business owners in underserved communities. Despite reaching 65,000 annual prospects, their manual processes created bottlenecks that limited actual loan approvals to just 34,000—leaving significant impact on the table.
           </p>
         </div>
       </section>
@@ -192,34 +190,22 @@ const Adie = () => {
         </div>
       </section>
 
-      {/* Key Metrics Section */}
+      {/* Metrics Section */}
       <section id="metrics" className="py-20 px-5 md:px-10 lg:px-[70px] 2xl:px-[200px] bg-[#F5F5F7]">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-[28px] md:text-[36px] font-bold mb-12 text-center">Key Impact Metrics</h2>
-          
+          <h2 className="text-[28px] md:text-[36px] font-bold mb-12 text-center">Key Metrics</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white rounded-3xl p-8 text-center transform hover:scale-105 transition-transform">
-              <div className="text-[48px] md:text-[56px] font-bold text-[#050505] mb-2">
-                {animatedMetrics.approvalTime} min
-              </div>
-              <p className="text-[18px] text-[#1D1D1F]">Average approval time</p>
-              <p className="text-[14px] text-[#666666] mt-2">Down from 48 hours</p>
+            <div className="bg-white rounded-3xl p-8 text-center">
+              <div className="text-[48px] font-bold text-[#050505] mb-2">{animatedMetrics.approvalTime}h</div>
+              <p className="text-[18px] text-[#1D1D1F]">Approval Time</p>
             </div>
-            
-            <div className="bg-white rounded-3xl p-8 text-center transform hover:scale-105 transition-transform">
-              <div className="text-[48px] md:text-[56px] font-bold text-[#050505] mb-2">
-                –{animatedMetrics.dropOffRate}%
-              </div>
-              <p className="text-[18px] text-[#1D1D1F]">Drop-off rate</p>
-              <p className="text-[14px] text-[#666666] mt-2">From 79% to 32%</p>
+            <div className="bg-white rounded-3xl p-8 text-center">
+              <div className="text-[48px] font-bold text-[#050505] mb-2">{animatedMetrics.dropOffRate}%</div>
+              <p className="text-[18px] text-[#1D1D1F]">Drop-off Reduction</p>
             </div>
-            
-            <div className="bg-white rounded-3xl p-8 text-center transform hover:scale-105 transition-transform">
-              <div className="text-[48px] md:text-[56px] font-bold text-[#050505] mb-2">
-                +{animatedMetrics.supportUsers}K
-              </div>
-              <p className="text-[18px] text-[#1D1D1F]">Support users</p>
-              <p className="text-[14px] text-[#666666] mt-2">New service adoption</p>
+            <div className="bg-white rounded-3xl p-8 text-center">
+              <div className="text-[48px] font-bold text-[#050505] mb-2">{animatedMetrics.supportUsers}K</div>
+              <p className="text-[18px] text-[#1D1D1F]">New Support Users</p>
             </div>
           </div>
         </div>
@@ -229,54 +215,40 @@ const Adie = () => {
       <section className="py-20 px-5 md:px-10 lg:px-[70px] 2xl:px-[200px]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-[28px] md:text-[36px] font-bold mb-12">What We Built</h2>
-          
+
           <div className="space-y-20">
             {/* Solution 1 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 rounded-full px-3 py-1 text-sm font-medium">
-                  <span>AI/ML Solution</span>
+                  <span>UX + Automation</span>
                 </div>
-                <h3 className="text-[24px] md:text-[28px] font-bold">Smarter Credit Scoring</h3>
+                <h3 className="text-[24px] md:text-[28px] font-bold">Streamlined Application Flow</h3>
                 <p className="text-[18px] text-[#050505]">
-                  Better models unlock more automated approvals—so we adopted gradient boosting with explainability.
+                  Reduced 47-field forms to progressive disclosure—collecting the right info at the right time.
                 </p>
                 <p className="text-[16px] text-[#1D1D1F]">
-                  Enriched scoring with open-banking & OCRed statements, created fast-track flows for low-risk clients, 
-                  and standardized decisions.
+                  Built conditional logic that adapts questions based on business type, funding needs, and risk profile. 
+                  Added real-time validation and auto-save to prevent data loss.
                 </p>
-                <div className="flex items-center gap-4 pt-4">
-                  <div className="bg-[#F5F5F7] rounded-xl px-4 py-2">
-                    <span className="text-[14px] font-medium">Gini: 30 → 72</span>
-                  </div>
-                  <div className="bg-[#F5F5F7] rounded-xl px-4 py-2">
-                    <span className="text-[14px] font-medium">95% Accuracy</span>
-                  </div>
-                </div>
               </div>
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-3xl p-8 h-[300px] flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-[64px] font-bold text-blue-600 mb-2">72</div>
-                  <p className="text-blue-700 font-medium">Gini Score</p>
-                </div>
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-3xl h-[300px] flex items-center justify-center text-[64px] font-bold text-blue-700">
+                Smart Forms
               </div>
             </div>
 
             {/* Solution 2 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              <div className="order-2 lg:order-1 bg-gradient-to-br from-green-50 to-emerald-100 rounded-3xl p-8 h-[300px] flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-[48px] font-bold text-green-600 mb-2">&lt;30 min</div>
-                  <p className="text-green-700 font-medium">Verification Time</p>
-                </div>
+              <div className="order-2 lg:order-1 bg-gradient-to-br from-green-50 to-emerald-100 rounded-3xl h-[300px] flex items-center justify-center text-[64px] font-bold text-green-700">
+                AI OCR
               </div>
               <div className="order-1 lg:order-2 space-y-4">
                 <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 rounded-full px-3 py-1 text-sm font-medium">
-                  <span>Automation</span>
+                  <span>AI + Vision</span>
                 </div>
-                <h3 className="text-[24px] md:text-[28px] font-bold">Real-Time Document Verification</h3>
+                <h3 className="text-[24px] md:text-[28px] font-bold">Document Processing Automation</h3>
                 <p className="text-[18px] text-[#050505]">
-                  Instant checks are the bedrock of a smooth loan flow—so we moved from 48h waits to sub-30 min verifications.
+                  Document uploads went from 3-week verification delays to instant data extraction.
                 </p>
                 <p className="text-[16px] text-[#1D1D1F]">
                   Deployed an AI-powered OCR engine with human-in-the-loop fallback, then extended the pipeline 
@@ -300,44 +272,112 @@ const Adie = () => {
                   personalized by user profile & stage.
                 </p>
               </div>
-              <div className="bg-gradient-to-br from-purple-50 to-pink-100 rounded-3xl p-8 h-[300px] flex items-center justify-center">
-                <div className="bg-white rounded-2xl shadow-lg p-4 w-full max-w-sm">
-                  <div className="space-y-3">
-                    <div className="bg-[#F5F5F7] rounded-xl p-3 ml-auto max-w-[80%]">
-                      <p className="text-sm">How can I improve my loan application?</p>
-                    </div>
-                    <div className="bg-purple-100 rounded-xl p-3 mr-auto max-w-[80%]">
-                      <p className="text-sm">Based on your profile, I recommend...</p>
-                    </div>
-                  </div>
-                </div>
+              <div className="bg-gradient-to-br from-purple-50 to-pink-100 rounded-3xl h-[300px] flex items-center justify-center text-[64px] font-bold text-purple-700">
+                AI Support
               </div>
             </div>
 
             {/* Solution 4 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              <div className="order-2 lg:order-1 bg-gradient-to-br from-orange-50 to-red-100 rounded-3xl p-8 h-[300px] flex items-center justify-center">
-                <div className="relative w-full h-full">
-                  <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-orange-500 rounded-full animate-pulse"></div>
-                  <div className="absolute top-1/2 right-1/3 w-3 h-3 bg-red-500 rounded-full animate-pulse delay-100"></div>
-                  <div className="absolute bottom-1/3 left-1/2 w-3 h-3 bg-orange-600 rounded-full animate-pulse delay-200"></div>
-                  <div className="text-center pt-20">
-                    <p className="text-orange-700 font-medium">Nationwide Coverage</p>
-                  </div>
-                </div>
+              <div className="order-2 lg:order-1 bg-gradient-to-br from-orange-50 to-red-100 rounded-3xl h-[300px] flex items-center justify-center text-[64px] font-bold text-orange-700">
+                Match AI
               </div>
               <div className="order-1 lg:order-2 space-y-4">
                 <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 rounded-full px-3 py-1 text-sm font-medium">
-                  <span>Digital Transformation</span>
+                  <span>Recommendation Engine</span>
                 </div>
-                <h3 className="text-[24px] md:text-[28px] font-bold">Digital Mentor Matching</h3>
+                <h3 className="text-[24px] md:text-[28px] font-bold">Smart Mentor Matching</h3>
                 <p className="text-[18px] text-[#050505]">
-                  Geography shouldn't limit guidance—so we unlocked digital mentorship.
+                  Connecting entrepreneurs with relevant mentors moved from ad-hoc to data-driven precision.
                 </p>
                 <p className="text-[16px] text-[#1D1D1F]">
                   Structured mentor data with ops/HR, then built a feedback-driven recommender to surface 
                   the right mentor everywhere.
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* My Contribution Section */}
+      <section className="py-20 px-5 md:px-10 lg:px-[70px] 2xl:px-[200px] bg-[#F5F5F7]">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-3 mb-8">
+            <Star className="w-6 h-6 text-[#050505]" />
+            <h2 className="text-[28px] md:text-[36px] font-bold">My Contribution</h2>
+          </div>
+          
+          <div className="mb-6">
+            <p className="text-[18px] md:text-[20px] text-[#1D1D1F] font-medium mb-8">
+              As the Product Manager leading discovery and delivery:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-2xl p-6 space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div>
+                  <p className="text-[16px] md:text-[18px] text-[#050505]">
+                    Led <strong>user research and stakeholder interviews</strong> across 15 Adie offices to understand loan processing bottlenecks and user pain points
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div>
+                  <p className="text-[16px] md:text-[18px] text-[#050505]">
+                    Designed and executed <strong>A/B testing framework</strong> for progressive form disclosure, achieving 47% drop-off reduction
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div>
+                  <p className="text-[16px] md:text-[18px] text-[#050505]">
+                    Managed <strong>cross-functional delivery teams</strong> (engineering, design, data science) using agile methodologies and sprint planning
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div>
+                  <p className="text-[16px] md:text-[18px] text-[#050505]">
+                    Established <strong>KPI tracking and analytics infrastructure</strong> to measure loan conversion, processing time, and user satisfaction
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div>
+                  <p className="text-[16px] md:text-[18px] text-[#050505]">
+                    Collaborated with <strong>AI/ML teams to define OCR requirements</strong> and human-in-the-loop workflows for document processing
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div>
+                  <p className="text-[16px] md:text-[18px] text-[#050505]">
+                    Facilitated <strong>stakeholder alignment</strong> between loan officers, IT, and executive teams to ensure smooth rollout across all regions
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -354,13 +394,6 @@ const Adie = () => {
             enabling Adie to reinvest savings into expanding their support services.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button 
-              onClick={() => window.open('https://adie.org', '_blank')}
-              className="inline-flex items-center gap-2 bg-white text-[#050505] px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity"
-            >
-              View Case Study
-              <ChevronRight className="w-4 h-4" />
-            </button>
             <button 
               onClick={() => navigate('/')}
               className="inline-flex items-center gap-2 border border-white/30 px-6 py-3 rounded-full font-medium hover:bg-white/10 transition-colors"
