@@ -1,20 +1,22 @@
 // src/App.tsx
 import React, { useState, useCallback } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header, MobileMenu, Footer } from './components/layout';
 import { 
-  Hero, Projects, 
+  Hero, 
+  Projects, 
   Blog, 
   Contact 
 } from './components/sections';
 import { Modal } from './components/ui';
 import { ContactForm } from './components/ContactForm';
+import { Adie, Riu } from './components/pages';
 
-const App: React.FC = () => {
-  // State management
+// Main Portfolio Page Component
+const PortfolioPage: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState<boolean>(false);
 
-  // Event handlers with useCallback for optimization
   const handleMobileMenuToggle = useCallback(() => {
     setIsMobileMenuOpen(prev => !prev);
   }, []);
@@ -38,38 +40,27 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#FCFCF9]">
-      {/* Header Navigation */}
       <Header 
         onMenuClick={handleMobileMenuToggle}
         isMenuOpen={isMobileMenuOpen}
       />
       
-      {/* Mobile Navigation Menu */}
       <MobileMenu 
         isOpen={isMobileMenuOpen}
         onClose={handleMobileMenuClose}
         onContactClick={handleContactFromMobileMenu}
       />
       
-      {/* Main Content Sections */}
       <main>
-        {/* Hero Section - Primary Background */}
         <Hero />
-        
-        {/* My Work Section - Primary Background */}
+        {/* Add ExecutionSection here when you create it */}
         <Projects />
-        
-        {/* Articles Section - Secondary Background */}
         <Blog />
-        
-        {/* Let's Connect Section - Primary Background */}
         <Contact onContactClick={handleContactModalOpen} />
       </main>
       
-      {/* Footer */}
       <Footer />
       
-      {/* Contact Modal - Triggered from Header */}
       <Modal
         isOpen={isContactModalOpen}
         onClose={handleContactModalClose}
@@ -78,6 +69,19 @@ const App: React.FC = () => {
         <ContactForm />
       </Modal>
     </div>
+  );
+};
+
+// Main App Component with Routing
+const App: React.FC = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<PortfolioPage />} />
+        <Route path="/projects/adie" element={<Adie />} />
+        <Route path="/projects/riu" element={<Riu />} />
+      </Routes>
+    </Router>
   );
 };
 

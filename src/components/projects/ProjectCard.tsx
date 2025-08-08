@@ -1,17 +1,33 @@
 // src/components/projects/ProjectCard.tsx
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Project } from '../../types';
 
 interface ProjectCardProps {
   project: Project;
-  onClick: () => void;
+  onClick?: () => void; // Keep this optional for backward compatibility
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
+  const navigate = useNavigate();
+  
+  const handleClick = () => {
+    // For now, hardcode the Adie project navigation
+    // Later you can use project.slug when you add it to your Project type
+    if (project.title.includes('Microfinance') || project.id === '3') {
+      navigate('/projects/adie');
+    } else {
+      // For other projects, fall back to onClick if provided
+      if (onClick) {
+        onClick();
+      }
+    }
+  };
+  
   return (
     <div 
       className="bg-transparent cursor-pointer group"
-      onClick={onClick}
+      onClick={handleClick}
     >
       {/* Image with specific shadow/translate effect */}
       <div className="aspect-[2/1] overflow-hidden rounded-xl mb-4 transition-all duration-300 ease-out group-hover:-translate-y-1" 

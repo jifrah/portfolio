@@ -1,9 +1,9 @@
+// src/components/sections/Projects.tsx
 import React, { useState } from 'react';
 import { Section, Container } from '../ui';
 import { ProjectCard } from '../projects/ProjectCard';
 import { LoadMore } from '../ui/LoadMore';
 import { useProjects } from '../../hooks/useContentful';
-import { Project } from '../../types';
 
 export const Projects: React.FC = () => {
   const [visibleCount, setVisibleCount] = useState(6);
@@ -16,11 +16,6 @@ export const Projects: React.FC = () => {
 
   const handleLoadMore = () => {
     setVisibleCount(prev => prev + 4);
-  };
-
-  // Handle project card click - navigate to project detail page
-  const handleProjectClick = (project: Project) => {
-    window.location.href = `/project/${project.id}`;
   };
 
   if (loading) {
@@ -57,7 +52,6 @@ export const Projects: React.FC = () => {
             <ProjectCard
               key={project.id}
               project={project}
-              onClick={() => handleProjectClick(project)}
             />
           ))}
         </div>
