@@ -46,14 +46,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
         <img 
           src={project.image} 
           alt={project.title}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-top"
         />
       </div>
       
       {/* Content */}
       <div>
         {/* Title */}
-        <h3 className="text-[28px] font-semibold font-nunito text-[#050505] mb-3 group-hover:underline transition-all duration-300">
+        <h3 className="text-[24px] md:text-[28px] font-semibold font-nunito text-[#050505] mb-3 group-hover:underline transition-all duration-300">
           {project.title}
         </h3>
         <p className="text-[14px] md:text-[16px] font-nunito font-medium opacity-80 text-[#1D1D1F]">{project.description}</p>

@@ -193,7 +193,13 @@ textarea:focus {
 
 /* Enhanced layout utilities */
 .staggered-2-col > *:nth-child(even) {
-  margin-top: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .staggered-2-col > *:nth-child(even) {
+    transform: translateY(35%);
+    margin-top: 1rem; /* Keep some base spacing */
+  }
 }
 
 /* Modern grid utilities for hero and content sections */

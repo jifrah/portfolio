@@ -47,7 +47,7 @@ export const Projects: React.FC = () => {
           </h2>
         </div>     
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 staggered-2-col">
+        <div className="grid grid-cols-1 gap-20 lg:grid-cols-2 staggered-2-col">
           {displayedProjects.map((project) => (
             <ProjectCard
               key={project.id}
