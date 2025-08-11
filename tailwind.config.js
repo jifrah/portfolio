@@ -18,12 +18,13 @@ module.exports = {
         'text-light': '#CFCFCF'
       },
       screens: {
-        'sm': '640px',
-        'md': '734px',  // Changed from default 768px or 834px
-        'lg': '1024px',
-        'xl': '1280px',
-        '2xl': '1536px',
-        }
+        'xs': '475px',   // Large phones
+        'sm': '640px',   // Small tablets  
+        'md': '768px',   // Tablets
+        'lg': '1024px',  // Small laptops
+        'xl': '1280px',  // Large laptops
+        '2xl': '1536px', // Desktops
+      }
     },
   },
   plugins: [],

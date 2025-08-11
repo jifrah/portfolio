@@ -120,11 +120,6 @@ img {
   background: #1D1D1F;
 }
 
-/* Mobile menu overlay */
-.mobile-menu-overlay {
-  @apply fixed inset-0 bg-black bg-opacity-50 z-40;
-}
-
 /* Project filters */
 .filter-active {
   @apply bg-[#050505] text-[#F8F8F8];
@@ -147,14 +142,20 @@ img {
   @apply aspect-video bg-[#E5E5E5] rounded-2xl;
 }
 
-/* Responsive utilities */
-@media (max-width: 734px) {
+/* Updated responsive utilities with modern breakpoints */
+@media (max-width: 767px) {
   .hide-mobile {
     display: none;
   }
 }
 
-@media (min-width: 735px) {
+@media (min-width: 768px) {
+  .hide-tablet-up {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
   .hide-desktop {
     display: none;
   }
@@ -190,6 +191,39 @@ textarea:focus {
   }
 }
 
+/* Enhanced layout utilities */
 .staggered-2-col > *:nth-child(even) {
   margin-top: 3rem;
+}
+
+/* Modern grid utilities for hero and content sections */
+@media (min-width: 1024px) {
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: center;
+  }
+  
+  .content-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-grid {
+    gap: 4rem;
+  }
+  
+  .content-grid-2 {
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .hero-grid {
+    gap: 5rem;
+  }
 }
